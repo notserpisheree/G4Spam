@@ -12,6 +12,23 @@ ui().banner()
 log.info('Main', 'Startring up!')
 auto_update().auto_update()
 
+pause = False
+
+if files.getsolverapikey() or files.getsolverstatus():
+    log.warn('Files', f'Solver support is PAID ONLY')
+    pause = True
+
+if files.getproxystatus():       
+    log.warn('Files', 'Proxy support is PAID ONLY')
+    pause = True
+
+if not files.gettokens():
+    log.warn('Files', 'You did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS) run /tokens command on my server to get more info')
+    pause = True
+
+if pause: 
+    log.info('Main', 'Press enter to continue', True)
+
 from src.modules.joiner import *
 from src.modules.leaver import *
 from src.modules.isinserver import *
@@ -20,8 +37,6 @@ from src.modules.checker import *
 from src.modules.display_changer import *
 from src.modules.pron_changer import *
 from src.modules.reaction import *
-
-time.sleep(1)
 
 while True:
     ui().cls()

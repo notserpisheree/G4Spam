@@ -34,21 +34,12 @@ class files:
         self.check()
         if not self.check_settings_update():
             self.update_settings()
-        
-        if self.getsolverapikey() or self.getsolverstatus():
-            log.info('Files', f'Solver support is PAID ONLY')
-
-        if self.getproxystatus():       
-            log.info('Files', 'Proxy support is PAID ONLY')
 
         #if not self.getproxies() and self.getproxystatus():
         #    messagebox.showerror('Info', 'Proxies ware enabled inside of settings.json but none are inside of input\\proxies.txt the code will not work properly please input proxies or disable proxies in settings.json')
 
         #if not self.getsolverapikey() and self.getsolverstatus():
         #    messagebox.showerror('Info', 'Solver is enabled inside of settings.json and u have not provided the api key inside of settings.json please provide the api key or disable solver in settings.json')
-
-        if not self.gettokens():
-            messagebox.showerror('Info', 'U did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS) run /tokens command on my server to get more info')
 
     def check(self):
         for dir in self.dirs:
