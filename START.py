@@ -1,9 +1,25 @@
 import os
 import time
-import webbrowser
-if not os.path.exists('src\\wasran.txt'):
-    webbrowser.open('https://www.youtube.com/watch?v=JEpa3RBnn_I&t')
-open('src\\wasran.txt', 'w').write('Was ran!!!! discord.gg/spamming best lime op v2 2024 best tool fortnite free feet')
+import subprocess
+import sys
+
+try:
+    print('Checking if pip is installed correctly...')
+    subprocess.run([sys.executable, '-m', 'pip', '--version'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print('Pip is installed correctly')
+except subprocess.CalledProcessError:
+    print('Pip is NOT installed correctly, installing and fixing it now!')
+    try:
+        subprocess.run([sys.executable, '-m', 'ensurepip'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run([sys.executable, '-m', 'pip', 'install', '--upgrade', 'pip'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        pip_path = os.path.join(os.path.dirname(sys.executable), 'Scripts')
+        if pip_path not in os.environ['PATH']:
+            os.environ['PATH'] += os.pathsep + pip_path
+        print('Pip installed and added to path succefssfully!')
+    except Exception:
+        print('Failed to install pip! PLEASE INSTALL PIP MANUALLY!!! AND DO NOT FORGET TO ADD IT TO PATH!!!')
+        input('Enter to quit...')
+        exit()
 
 try:
     import requests
@@ -16,8 +32,7 @@ try:
     import zipfile
 
 except ModuleNotFoundError:
-    print('Modules not found! Installing in 3s')
-    time.sleep(3)
+    print('Modules not found! Installing them!')
 
     libs = [
         'uuid',
@@ -34,8 +49,7 @@ except ModuleNotFoundError:
     for lib in libs:
         os.system(f'pip install {lib}')
     
-    print('Modules installed! Starting in 3s')
-    time.sleep(3)
+    print('Modules installed! Starting lime V2...')
     os.system('py main.py limev2')
     exit()
 
