@@ -10,6 +10,7 @@ class ui:
 
     def banner(self):
         banner = f"""
+\033[1m{r'FREE VERSION BUY PAID/FULL ON DISCORD.GG/SPAMMING'.center(self.size)}\033[0m
 \033[1m{r' █████        ███                              █████   █████  ████████ '.center(self.size)}\033[0m
 \033[1m{r'░░███        ░░░                              ░░███   ░░███  ███░░░░███'.center(self.size)}\033[0m
 \033[1m{r' ░███        ████  █████████████    ██████     ░███    ░███ ░░░    ░███'.center(self.size)}\033[0m
@@ -18,6 +19,7 @@ class ui:
 \033[1m{r' ░███      █ ░███  ░███ ░███ ░███ ░███░░░       ░░░█████░    ███      █'.center(self.size)}\033[0m
 \033[1m{r' ███████████ █████ █████░███ █████░░██████        ░░███     ░██████████'.center(self.size)}\033[0m
 \033[1m{r'░░░░░░░░░░░ ░░░░░ ░░░░░ ░░░ ░░░░░  ░░░░░░          ░░░      ░░░░░░░░░░ '.center(self.size)}\033[0m
+\033[1m{r'FREE VERSION BUY PAID/FULL ON DISCORD.GG/SPAMMING'.center(self.size)}\033[0m
 """
             
         print(ab5.vgratient(banner, self.gradient1, self.gradient2))
