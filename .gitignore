@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 test.py
 src/wasran.txt
+/LimeV2VENV
