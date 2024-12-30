@@ -17,4 +17,5 @@ subprocess.run([os.path.join(venv, 'Scripts', 'pip'), 'install', '-r', 'requirem
 
 print('Running main.py...')
 subprocess.run([os.path.join(venv, 'Scripts', 'python'), 'main.py', 'LimeV2'])
+input('Enter to exit')
 exit()

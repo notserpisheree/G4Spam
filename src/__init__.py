@@ -1,5 +1,5 @@
 DBG = False
-VERSION = 2.2
+VERSION = 2.21
 
 import sys, os, traceback; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 import json
@@ -26,6 +26,8 @@ else:
     os.system('py START.py')
     exit()
 
+from pypresence import Presence
+import platform
 import base64
 import requests
 import tls_client

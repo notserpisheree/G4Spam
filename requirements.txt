@@ -8,3 +8,5 @@ tls_client
 beautifulsoup4
 typing-extensions
 typing
+platform
+pypresence
