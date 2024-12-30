@@ -4,10 +4,8 @@ from src.plugins.error_chandler import *
 from src.plugins.log import *
 from src.plugins.ui import *
 from src.plugins.files import *
-from src.plugins.rpc import RPC
 from src.plugins.auto_update import *
 
-RPC.update('Starting up', 'discord.gg/spamming')
 ui().cls()
 ui().title('Lime V2 FREE - discord.gg/spamming')
 ui().banner()
@@ -41,7 +39,6 @@ from src.modules.pron_changer import *
 from src.modules.reaction import *
 
 while True:
-    RPC.update('In the main menu', 'discord.gg/spamming')
     ui().cls()
     ui().title('Lime V2 FREE - discord.gg/spamming')
     ui().banner()

@@ -1,11 +1,9 @@
 from src import *
 from src.plugins.log import *
 from src.plugins.files import *
-from src.plugins.rpc import RPC
 
 class prep:
     def __init__(self):
-        RPC.update('Getting client info...', 'discord.gg/spamming')
         log.info('Client', 'Getting client info...')
         self.sess = tls_client.Session(
             random_tls_extension_order=True, 
@@ -15,7 +13,6 @@ class prep:
         self.headers = None
         self.xsup = None
         self.ua = None
-        RPC.update('Inited header values', 'discord.gg/spamming')
         log.info('Client', 'Inited header values')
 
         self.os = platform.system()
@@ -27,7 +24,6 @@ class prep:
         self.os_sdk_version = platform.version().split('.')[0]
         self.client_build_number = 355624
         self.native_build_number = 56716
-        RPC.update('Inited xsup values', 'discord.gg/spamming')
         log.info('Client', 'Inited xsup values')
 
         r = requests.get(
@@ -37,26 +33,20 @@ class prep:
             self.ua = r.json().get('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) discord/1.0.9175 Chrome/128.0.6613.186 Electron/32.2.7 Safari/537.36')
         else:
             self.ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) discord/1.0.9175 Chrome/128.0.6613.186 Electron/32.2.7 Safari/537.36'
-        RPC.update('Got the User-Agent for the discord app', 'discord.gg/spamming')
         log.info('Client', 'Got the User-Agent for the discord app')
 
         self.cookies = {}
         self.cookies_renew()
-        RPC.update('Updated discord info', 'discord.gg/spamming')
         log.info('Client', 'Updated discord info')
 
         self.xsup_form()
-        RPC.update('Formed xsup base', 'discord.gg/spamming')
         log.info('Client', 'Formed xsup base')
         self.xsup_client()
-        RPC.update('Got xsup client info', 'discord.gg/spamming')
         log.info('Client', 'Got xsup client info')
         self.xsup_native()
-        RPC.update('Got xsup native info', 'discord.gg/spamming')
         log.info('Client', 'Got xsup native info')
 
         self.headers_form()
-        RPC.update('Formed header base', 'discord.gg/spamming')
         log.info('Client', 'Formed headers')
 
     def cookies_renew(self):

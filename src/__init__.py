@@ -22,11 +22,10 @@ import ctypes
 
 if len(sys.argv) > 1:
     pass
-else:
+else:   
     os.system('py START.py')
     exit()
 
-from pypresence import Presence
 import platform
 import base64
 import requests
