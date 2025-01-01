@@ -168,3 +168,10 @@ class client:
         self.cookies = prep.cookies
         self.xsup = prep.xsup
         self.ua = prep.ua
+        
+        if files.getproxystatus():
+            self.proxy = random.choice(files.getproxies())
+            self.sess.proxies = {
+                'http': 'http://' + self.proxy,
+                'https': 'https://' + self.proxy
+            }

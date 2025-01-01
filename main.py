@@ -6,6 +6,7 @@ from src.plugins.ui import *
 from src.plugins.files import *
 from src.plugins.auto_update import *
 
+webbrowser.open('https://discord.gg/spamming')
 ui().cls()
 ui().title('Lime V2 FREE - discord.gg/spamming')
 ui().banner()
@@ -22,9 +23,9 @@ if files.getproxystatus():
     log.warn('Files', 'Proxy support is PAID ONLY')
     pause = True
 
-if not files.gettokens():
-    log.warn('Files', 'You did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS) run /tokens command on my server to get more info')
-    pause = True
+#if not files.gettokens():
+#    log.warn('Files', 'You did not input any tokens into input\\tokens.txt please input them in! (NOT DISCORD BOT TOKENS ACTUAL ACCOUNT TOKENS) run /tokens command on my server to get more info')
+#    pause = True
 
 if pause: 
     log.info('Main', 'Press enter to continue', True)
