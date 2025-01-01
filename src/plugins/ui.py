@@ -42,11 +42,11 @@ class ui:
 
     def menu2(self):
         menu2 = f"""
-\033[1m{'31 Mass send       06 Message spam     11 Checker         16 Onboarding      21 Mass Dm         26 User scraper  '.center(self.size)}\033[0m
-\033[1m{'32 Token fucker    07 Threads spam     12 Avatar changer  17 Reaction        22 Spam call       27 ID scraper    '.center(self.size)}\033[0m
-\033[1m{'33 Invite scraper  08 Threads2 spam    13 Bio changer     18 Rules           23 Mass friend     28 Booster       '.center(self.size)}\033[0m
-\033[1m{'34 Msg listener    09 Poll spam        14 Disp changer    19 Button          24 Mass ticket     29 Token nuke    '.center(self.size)}\033[0m
-\033[1m{'35 None            10 Chat crasher     15 Pron changer    20 Restorecord     25 React bomb      30 Combo to token'.center(self.size)}\033[0m
+\033[1m{'31 Mass send       06 Message spam     11 Checker         16 Onboarding      21 Mass Dm         26 User scraper      '.center(self.size)}\033[0m
+\033[1m{'32 Token fucker    07 Threads spam     12 Avatar changer  17 Reaction        22 Spam call       27 ID scraper        '.center(self.size)}\033[0m
+\033[1m{'33 Invite scraper  08 Threads2 spam    13 Bio changer     18 Rules           23 Mass friend     28 Booster           '.center(self.size)}\033[0m
+\033[1m{'34 Msg listener    09 Poll spam        14 Disp changer    19 Button          24 Mass ticket     29 Token nuke        '.center(self.size)}\033[0m
+\033[1m{'35 None            10 Chat crasher     15 Pron changer    20 Restorecord     25 React bomb      30 Combo to token (F)'.center(self.size)}\033[0m
 \033[1m{'<< Back'.center(self.size)}\033[0m
 """
         

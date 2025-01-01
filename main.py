@@ -38,6 +38,7 @@ from src.modules.checker import *
 from src.modules.display_changer import *
 from src.modules.pron_changer import *
 from src.modules.reaction import *
+from src.modules.combototoken import *
 
 while True:
     ui().cls()
@@ -72,7 +73,20 @@ while True:
         '17': reaction().main,
         '18': log.premium_only,
         '19': log.premium_only,
-        '20': log.premium_only
+        '20': log.premium_only,
+        '18': log.premium_only,
+        '19': log.premium_only,
+        '20': log.premium_only,
+        '21': log.premium_only,
+        '22': log.premium_only,
+        '23': log.premium_only,
+        '24': log.premium_only,
+        '25': log.premium_only,
+        '26': log.premium_only,
+        '27': log.premium_only,
+        '28': log.premium_only,
+        '29': log.premium_only,
+        '30': combototoken().main,
     }
 
     if choice in options:
