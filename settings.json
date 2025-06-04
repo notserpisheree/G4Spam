@@ -1,9 +1,0 @@
-{
-    "version": 2.0,
-    "advanced-mode": true,
-    "threads": 10,
-    "proxies": false,
-    "usesolver": false,
-    "solvertype (can use: csolver)": "",
-    "solverapikey": ""
-}
