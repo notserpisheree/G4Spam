@@ -1,3 +1,4 @@
+import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 from datetime import datetime as dt
 import ab5
 import os
