@@ -1,9 +1,20 @@
 import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls')
-from datetime import datetime as dt
-import os
-import webbrowser
-import re
-import requests
+import subprocess
+import time
+try:
+    from datetime import datetime as dt
+    import os
+    import webbrowser
+    import re
+    import requests
+except ModuleNotFoundError:
+    print('Installing requirements in 5s')
+    time.sleep(5)
+    os.system('pip install -r requirements.txt')
+    print('Rebooting the script in 5s')
+    time.sleep(5)
+    subprocess.Popen(f'start cmd /k python "{os.path.abspath(__file__)}"', shell=True)
+    sys.exit()
 
 #webbrowser.open('https://discord.gg/spamming')
 #webbrowser.open('https://t.me/g4spam')
