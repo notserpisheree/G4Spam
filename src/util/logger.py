@@ -1,7 +1,7 @@
 from src import *
 
 class logger:
-    def __init__(self, name: str = 'Logger'):
+    def __init__(self, name: str='Logger'):
         self.name = name
 
     def gettimestamp(self):
@@ -9,7 +9,12 @@ class logger:
         return timestamp
 
     def log(self, text: str):
-        print(f'{co.grey}[{self.gettimestamp()}{co.grey}] {co.grey}[{co.main}{self.name}{co.grey}] {co.grey}[{co.main}{text}{co.grey}]')
+        print(f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] {co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
 
-    def error(self, text: str, error: str):
-        print(f'{co.grey}[{self.gettimestamp()}{co.grey}] {co.grey}[{co.main}{self.name}{co.grey}] {co.grey}[{co.red}{text}{co.grey}] {co.grey}({co.red}{error}{co.grey})')
+    def error(self, text: str, error: str=''):
+        if error == '':
+            endstr = ''
+        else:
+            endstr = f'{co.grey}({co.grey}{error}{co.grey}){co.reset}'
+
+        print(f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] {co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
