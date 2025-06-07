@@ -1,9 +1,6 @@
 from src import *
 
 from src.util.logger import logger
+from src.util.ui import ui
 
-
-logger = logger('kacper kuszko')
-logger.log('cwel')
-
-input('')
+ui.banner()
