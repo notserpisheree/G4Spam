@@ -1,8 +1,9 @@
-import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls')
 from datetime import datetime as dt
 import os
 import webbrowser
 import re
+import requests
 
 #webbrowser.open('https://discord.gg/spamming')
 #webbrowser.open('https://t.me/g4spam')

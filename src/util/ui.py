@@ -11,6 +11,9 @@ from src.util.files import files
 # │
 # ─
 class ui:
+    def title(title: str):
+        os.system(f'title {title}')
+
     def cls():
         os.system('cls')
 
