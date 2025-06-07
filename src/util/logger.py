@@ -15,10 +15,15 @@ class logger:
             ts = ''
         print(f'{ts}{co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
 
-    def error(self, text: str, error: str=''):
+    def error(self, text: str, error: str='', ts: bool=False):
         if error == '':
             endstr = ''
         else:
             endstr = f'{co.grey}({co.grey}{error}{co.grey}){co.reset}'
 
-        print(f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] {co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+
+        print(f'{ts}{co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
