@@ -8,8 +8,12 @@ class logger:
         timestamp = dt.now().strftime('%H:%M:%S')
         return timestamp
 
-    def log(self, text: str):
-        print(f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] {co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
+    def log(self, text: str, ts: bool=False):
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+        print(f'{ts}{co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
 
     def error(self, text: str, error: str=''):
         if error == '':

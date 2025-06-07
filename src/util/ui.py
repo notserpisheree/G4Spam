@@ -1,4 +1,5 @@
 from src import *
+from src.util.files import files
 # «
 # » 
 # ➤
@@ -21,10 +22,14 @@ class ui:
         return '\n'.join(centeredlines)
     
     def bar():
-        bar = fr'{len()} tokens proxies'
+        tokens = len(files.read('data\\tokens.txt'))
+        proxies = len(files.read('data\\proxies.txt'))
+        bar = f'                                         {co.reset}{tokens}{co.main} Tokens                                                 {co.reset}{proxies}{co.main} Proxies'
+        bar = ui.center(text=bar, size=os.get_terminal_size().columns)
+        print(bar)
 
     def banner():
-        banner = r'''
+        banner = fr'''{co.main}
    ________ __ _____                     
   / ____/ // // ___/____  ____ _____ ___ 
  / / __/ // /_\__ \/ __ \/ __ `/ __ `__ \
@@ -32,22 +37,26 @@ class ui:
 \____/  /_/ /____/ .___/\__,_/_/ /_/ /_/ 
                 /_/                      ''' 
         banner = ui.center(banner, os.get_terminal_size().columns)
-        print(ab5.vgratient(banner, co.gmain, co.gmain_))
+        print(banner)
         
     def menu():
-        menu = r'''
+        menu = fr'''{co.main}
 ╭─────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                             │
-│                                                                                             │
-│                                                                                             │
-│                                                                                             │
+│   «01» Server                                                                               │
+│   «02» Token                                                                                │
+│   «03» Spamming                                                                             │
 │                                                                                             │
 │                                                                                             │
 │                                                                                             │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────╯
 '''     
-        menu = ui.center(menu, os.get_terminal_size().columns)
-        print(ab5.vgratient(menu, co.gmain, co.gmain_))
+        menu: str = ui.center(text=menu, size=os.get_terminal_size().columns)
+        
+        for char in ['╭', '╯', '╮', '╰', '─', '│', '»', '«']:
+            menu = menu.replace(char, f'{co.main}{char}{co.reset}')
 
-    def input(text: str):
+        print(menu)
+
+    def input(text: str) -> str:
         return input(f'{co.main}[{co.reset}{text}{co.main}] {co.main}»{co.grey} {co.reset}')

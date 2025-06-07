@@ -4,11 +4,10 @@ from src import *
 from src.util import ui
 from src.util import logger
 
-logger = logger('Main')
-
-logger.error('Jaki pechhhh')
-logger.log('Jaki pechhhh')
+logger = logger(name='Main')
 
 ui.banner()
+ui.bar()
 ui.menu()
-ui.input('Option')
+logger.log(text='Welcome to G4Spam made by r3ci <3 github.com/R3CI/G4Spam', ts=False)
+ui.input(text='Option')

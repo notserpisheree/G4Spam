@@ -13,6 +13,10 @@ class files:
         with open(path, method) as f:
             f.write(text)
 
+    def read(path: str) -> str:
+        with open(path, 'r') as f:
+            return f.read()
+
     def createdir(path: str):
         if not os.path.exists(path):
             os.makedirs(path)
@@ -25,28 +29,28 @@ class files:
         if os.path.exists(path):
             os.remove(path)
 
-    def joinpath(*args):
+    def joinpath(*args) -> str:
         return os.path.join(*args)
     
-    def getsize(path: str):
+    def getsize(path: str) -> int:
         return os.path.getsize(path)
     
-    def isfile(path: str):
+    def isfile(path: str) -> bool:
         return os.path.isfile(path)
     
-    def isdir(path: str):
+    def isdir(path: str) -> bool:
         return os.path.isdir(path)
     
-    def exists(path: str):
+    def exists(path: str) -> bool:
         return os.path.exists(path)
     
-    def walk(path: str):
+    def walk(path: str) -> tuple:
         return os.walk(path)
     
-    def listdir(path: str):
+    def listdir(path: str) -> list:
         return os.listdir(path)
     
-    def getcwd():
+    def getcwd() -> str:
         return os.getcwd()
     
     def runtasks():
