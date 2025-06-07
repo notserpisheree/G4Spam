@@ -6,6 +6,7 @@ from src.util import logger
 
 logger = logger(name='Main')
 
+ui.cls()
 ui.banner()
 ui.bar()
 ui.menu()
