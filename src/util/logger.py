@@ -1,8 +1,8 @@
 from src import *
 
 class logger:
-    def __init__(self, name: str='Logger'):
-        self.name = name
+    def __init__(self, module: str='Logger'):
+        self.module = module
 
     def gettimestamp(self):
         timestamp = dt.now().strftime('%H:%M:%S')
@@ -13,7 +13,7 @@ class logger:
             ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
         else:
             ts = ''
-        print(f'{ts}{co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
 
     def error(self, text: str, error: str='', ts: bool=False):
         if error == '':
@@ -26,4 +26,4 @@ class logger:
         else:
             ts = ''
 
-        print(f'{ts}{co.main}[{co.reset}{self.name}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')

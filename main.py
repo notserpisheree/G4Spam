@@ -5,7 +5,7 @@ from src.util.ui import ui
 from src.util.logger import logger
 from src.util.other import other
 
-logger = logger(name='Main')
+logger = logger(module='Main')
 logger.log(text='Getting repo stars...', ts=True)
 stars = other.getrepostars()
 
@@ -22,7 +22,8 @@ while True:
     chosen = ui.input(text='Option')
 
     options = {
-        '20': lambda: exit()
+        '20': lambda: exit(),
+        '0': lambda: ui.createmenu(['cipek', 'cipek2', 'cipek3'])
     }
     try:
         options[chosen]()
