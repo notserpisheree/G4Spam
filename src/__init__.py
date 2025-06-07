@@ -1,7 +1,11 @@
 import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
 from datetime import datetime as dt
 import os
+import webbrowser
 import re
+
+#webbrowser.open('https://discord.gg/spamming')
+#webbrowser.open('https://t.me/g4spam')
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
