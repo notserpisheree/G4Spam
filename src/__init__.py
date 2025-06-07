@@ -7,7 +7,11 @@ try:
     import os
     import webbrowser
     import re
+    import json
+    from urllib.parse import urlparse
     import requests
+    import curl_cffi as curlcffi_
+    from curl_cffi import requests as curlcffi
 except ModuleNotFoundError:
     print('Installing requirements in 5s')
     time.sleep(5)
