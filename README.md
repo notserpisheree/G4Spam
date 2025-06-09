@@ -16,9 +16,9 @@
   <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fgithub.com%2FR3CI%2FG4Spam&s=80&c=6000ff&bg=00000000&no=5&ff=alien&tb=&ta=">
 </p>
   
-<!--<p align="center"> -->
-<!--  <img src=""> -->
-<!--</p> -->
+<p align="center">
+  <img src="https://i.imgur.com/zxjvWe8.png">
+</p>
 
 <p align="center">
   <img src="https://api.star-history.com/svg?repos=R3CI/G4Spam&type=Date&theme=dark">
