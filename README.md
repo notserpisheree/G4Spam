@@ -28,8 +28,10 @@
   <img src="https://repobeats.axiom.co/api/embed/e999038a6ca21d17aa45a3bdb0578f607e14f47c.svg">
 </p>
   
-```
-                                    This repository is intended for educational purposes only.  
-                                    The author does not support or encourage illegal or unethical use.  
-                                    Use responsibly and at your own risk.
-```
+<div align="center">
+
+This repository is intended for educational purposes only.  
+The author does not support or encourage illegal or unethical use.  
+Use responsibly and at your own risk.
+
+</div>
