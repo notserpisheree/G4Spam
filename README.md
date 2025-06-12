@@ -1,3 +1,5 @@
+# ⚠️ WORK IN PROGRESS ⚠️
+
 <p align="center">
   <img src="https://i.imgur.com/ytj2i7l.png" width="250" height="250">
 </p>
@@ -16,9 +18,9 @@
   <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fgithub.com%2FR3CI%2FG4Spam&s=80&c=6000ff&bg=00000000&no=5&ff=alien&tb=&ta=">
 </p>
   
-<!--<p align="center"> -->
-<!--  <img src=""> -->
-<!--</p> -->
+<p align="center">
+  <img src="https://i.imgur.com/zxjvWe8.png">
+</p>
 
 <p align="center">
   <img src="https://api.star-history.com/svg?repos=R3CI/G4Spam&type=Date&theme=dark">
@@ -27,3 +29,15 @@
 <p align="center">
   <img src="https://repobeats.axiom.co/api/embed/e999038a6ca21d17aa45a3bdb0578f607e14f47c.svg">
 </p>
+  
+<div align="center">
+
+This repository is intended for educational purposes only.  
+The author does not support or encourage illegal or unethical use.  
+Use responsibly and at your own risk.  
+<br><br>
+This tool is **not** designed to harm, exploit, or negatively affect Discord users, servers, or Discord itself.  
+It does **not** promote malicious activity, abuse, or any form of violation of Discord's Terms of Service.  
+This project has **no affiliation** with Discord Inc. in any way.
+
+</div>
