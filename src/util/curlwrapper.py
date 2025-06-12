@@ -92,8 +92,8 @@ class sessionwrapper:
             r = self.session.request(method, url, **kwargs)
             return responsewrapper(r)
         
-        except curlcffi_.curl.CurlError as e:
-            logger.error(text=f'Curl effor', error=e, ts=True)
+        except curlcffi_.curl.CurlError as e    :
+            logger.error(text=f'Curl error', error=e, ts=True)
             return responsewrapper(error=f'Curl error: {e}')
         
         except curlcffi.exceptions.ConnectionError as e:

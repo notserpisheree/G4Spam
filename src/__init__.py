@@ -8,14 +8,32 @@ try:
     import webbrowser
     import re
     import json
+    import uuid
     from urllib.parse import urlparse
     import requests
     import curl_cffi as curlcffi_
+    import random
+    import pkg_resources
+    import subprocess
+    import base64
+    import requests.cookies
     from curl_cffi import requests as curlcffi
+
 except ModuleNotFoundError:
     print('Installing requirements in 5s')
     time.sleep(5)
     os.system('pip install -r requirements.txt')
+    print('Rebooting the script in 5s')
+    time.sleep(5)
+    subprocess.Popen(f'start cmd /k python "{os.path.abspath(__file__)}"', shell=True)
+    sys.exit()
+
+installedversion = pkg_resources.get_distribution('curl_cffi').version
+result = subprocess.run(['pip', 'install', '--upgrade', 'curl_cffi', '--dry-run'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+if not installedversion in result.stdout:
+    print('Curl cffi outdated, updating in 5s')
+    time.sleep(5)
+    os.system('pip install --upgrade curl_cffi')
     print('Rebooting the script in 5s')
     time.sleep(5)
     subprocess.Popen(f'start cmd /k python "{os.path.abspath(__file__)}"', shell=True)

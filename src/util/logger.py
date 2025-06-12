@@ -19,7 +19,7 @@ class logger:
         if error == '':
             endstr = ''
         else:
-            endstr = f'{co.grey}({co.grey}{error}{co.grey}){co.reset}'
+            endstr = f'{co.main}[{co.red}{error}{co.main}]{co.reset}'
 
         if ts:
             ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
