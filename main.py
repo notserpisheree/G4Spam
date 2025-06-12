@@ -11,7 +11,7 @@ logger.log(text='Getting repo stars...', ts=True)
 stars = other.getrepostars()
 
 logger.log(text='Finished starting G4Spam', ts=True)
-
+time.sleep(1)
 while True:
     ui.title(f'G4Spam - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
     ui.cls()
