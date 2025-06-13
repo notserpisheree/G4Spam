@@ -58,7 +58,13 @@ class joiner:
                     self.verifications.append('Rules')
                 
                 servername = ui.cut(text=self.servername, length=20, end='...')
-                self.logger.succeded(text=f'{ctoken} Discovered server {servername} [{", ".join(self.verifications)}]')
+
+                if self.verifications:
+                    endstr = f' [{", ".join(self.verifications)}]'
+                else:
+                    endstr = ''
+
+                self.logger.succeded(text=f'{ctoken} Discovered server {servername}{endstr}')
                 return True
 
             elif 'retry_after' in r.text:
@@ -159,5 +165,3 @@ class joiner:
             tokens=files.gettokens(),
             delay=self.delay,
         )
-
-        self.join(self.invite)
