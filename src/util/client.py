@@ -15,6 +15,8 @@ logger.log(text=f'Got discord info', ts=True)
 class client:
     def __init__(self, token=None, reffer='https://discord.com/channels/@me'):
         self.sess = curlwrapper.Session(impersonate=apibypassing.fingerprint)
+        self.launchid = str(uuid.uuid4())
+        self.wssessid = str(uuid.uuid4())
         self.sess.cookies.update(cookie)
 
         self.headers = apibypassing.headers
@@ -23,8 +25,8 @@ class client:
 
         xsuper = apibypassing.xsuper  
         xsuper['referrer'] = reffer
-        xsuper['client_launch_id'] = str(uuid.uuid4())
-        xsuper['client_heartbeat_session_id'] = str(uuid.uuid4())
+        xsuper['client_launch_id'] = self.launchid
+        xsuper['client_heartbeat_session_id'] = self.wssessid
         xsuper = apibypassing.encode(xsuper)
         self.headers['X-Super-Properties'] = xsuper
 
