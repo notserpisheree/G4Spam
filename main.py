@@ -18,8 +18,9 @@ from src.modules.server_managment.server_managment import servermanagment
 from src.modules.token_managment.token_managment import tokenmanagment
 from src.modules.sources import sources
 
-RPC.update('Launching...')
 logger = logger('Main')
+sui = ui('Main')
+RPC.update('Launching...')
 logger.log('Adding a launch to stats', True)
 other.addlaunch()
 logger.log('Getting repo stars...', True)
@@ -31,15 +32,15 @@ logger.log('Finished starting G4Spam', True)
 
 while True:
     RPC.update('In main menu')
-    ui.title(f'G4Spam ({launches}) - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
-    ui.cls()
-    ui.banner()
-    ui.bar()
-    ui.menu()
+    sui.title(f'G4Spam ({launches}) - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
+    sui.cls()
+    sui.banner()
+    sui.bar()
+    sui.menu()
 
     logger.log('Welcome to G4Spam made by r3ci <3 github.com/R3CI/G4Spam')
     logger.log(f'Current version is {version}')
-    chosen = ui.input('Option')
+    chosen = sui.input('Option')
 
     options = {
         '1': servermanagment().menu,

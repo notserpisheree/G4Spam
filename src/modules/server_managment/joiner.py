@@ -1,9 +1,7 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.logger import logger
@@ -20,6 +18,7 @@ class joiner:
     def __init__(self):
         self.module = 'Joiner'
         self.logger = logger(self.module)
+        self.ui = ui(self.module)
         self.invite = None
 
         self.serverid = None
@@ -30,7 +29,7 @@ class joiner:
 
 
     def discover(self, token, cl: client=None):
-        ctoken = ui.cut(token, 20, '...')
+        ctoken = self.ui.cut(token, 20, '...')
         try:
             if not cl:
                 cl = client(token=token, reffer='https://discord.com/discovery/servers')
@@ -42,9 +41,9 @@ class joiner:
 
             if r.status_code == 200:
                 data = r.json()
-                guild: dict = data.get('guild', {})
-                features = guild.get('features', [])
-                channel: dict = data.get('channel', {})
+                guild = dict(data.get('guild', {}))
+                features = list(guild.get('features', []))
+                channel = dict(data.get('channel', {}))
 
                 self.serverid = guild.get('id')
                 self.servername = guild.get('name')
@@ -57,7 +56,7 @@ class joiner:
                 if 'MEMBER_VERIFICATION_GATE_ENABLED' in features:
                     self.verifications.append('Rules')
                 
-                servername = ui.cut(text=self.servername, length=20, end='...')
+                servername = self.ui.cut(text=self.servername, length=20, end='...')
 
                 if self.verifications:
                     endstr = f' [{", ".join(self.verifications)}]'
@@ -97,7 +96,7 @@ class joiner:
             return False
 
     def join(self, token, cl: client=None):
-        ctoken = ui.cut(token, 20, '...')
+        ctoken = self.ui.cut(token, 20, '...')
         try:
             if not cl:
                 cl = client(token=token, reffer='https://discord.com/discovery/servers')
@@ -155,10 +154,10 @@ class joiner:
             self.logger.error(f'{ctoken} Failed to join', e)
 
     def menu(self):
-        ui.prep(self.module)
-
-        self.invite = discordutils.extractinv(ui.input('Invite link', self.module))
-        self.delay = ui.delayinput(self.module)
+        self.ui.prep()
+        self.invite = self.ui.input('Invite link')
+        self.invite = discordutils.extractinv(self.invite)
+        self.delay = self.ui.delayinput()
 
         threading(
             func=self.join,

@@ -1,9 +1,7 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.logger import logger
@@ -18,6 +16,7 @@ class checker:
     def __init__(self):
         self.module = 'Checker'
         self.logger = logger(self.module)
+        self.ui = ui(self.module)
 
         self.valids = []
         self.failed = []
@@ -34,7 +33,7 @@ class checker:
         self.hasnomfa = []
 
     def check(self, token, cl: client=None):
-        ctoken = ui.cut(token, 20, '...')
+        ctoken = self.ui.cut(token, 20, '...')
         try:
             if not cl:
                 cl = client(token, 'https://discord.com/channels/@me')
@@ -164,9 +163,8 @@ class checker:
             self.logger.error(f'{ctoken} Failed to check', e)
 
     def menu(self):
-        ui.prep(self.module)
-
-        self.delay = ui.delayinput(self.module)
+        self.ui.prep()
+        self.delay = self.ui.delayinput()
 
         threading(
             func=self.check,
@@ -175,7 +173,7 @@ class checker:
         )
 
         if self.valids:
-            save = ui.input('Replace tokens.txt with only valid tokens', self.module, True)
+            save = self.ui.input('Replace tokens.txt with only valid tokens', True)
             if save:
                 with open('data\\tokens.txt', 'w') as f:
                     f.write('\n'.join(self.valids))

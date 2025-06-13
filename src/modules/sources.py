@@ -1,32 +1,36 @@
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
+
 from src import *
 from src.util.ui import ui
 
 class sources:
     def menu():
         module = 'Sources'
-        ui.prep(module)
-        ui.createmenu([
+        sui = ui(module)
+        sui.prep(module)
+        sui.createmenu([
             'Private raiders',
             'Proxies',
             'Tokens',
             'Solvers',
             'Back'
         ])
-
-        chosen = ui.input('Option')
+        chosen = sui.input('Option')
 
         if chosen == '1': 
             webbrowser.open('https://r3ci.sellhub.cx')
 
         elif chosen == '2':
-            ui.createmenu([
+            sui.createmenu([
                 'IPRoyal',
                 'Mars proxies',
                 'Tokenu proxies',
                 'Back'
             ])
-
-            chosen = ui.input('Option', module)
+            chosen = sui.input('Option', module)
 
             if chosen == '1':   webbrowser.open('https://iproyal.com/?r=429481')
             elif chosen == '2': webbrowser.open('https://marsproxies.com/r/97040')
@@ -34,20 +38,19 @@ class sources:
             else:               sources.menu()
 
         elif chosen == '3':
-            ui.createmenu([
+            sui.createmenu([
                 'My shop (UHQ + AGE GARAUNTEED)',
                 'Tokenu',
                 'Back'
             ])
-
-            chosen = ui.input('Option', module)
+            chosen = sui.input('Option', module)
 
             if chosen == '1':   webbrowser.open('https://r3ci.sellhub.cx/product/Discord-tokens/')
             elif chosen == '2': webbrowser.open('https://www.tokenu.net?ref=r3ci')
             else:               sources.menu()
 
         elif chosen == '4':
-            ui.createmenu([
+            sui.createmenu([
                 'Soon'
             ])
 

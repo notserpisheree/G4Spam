@@ -1,9 +1,7 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.logger import logger
@@ -15,18 +13,19 @@ from src.modules.server_managment.leaver import leaver
 class servermanagment:
     def __init__(self):
         self.module = 'Server Managment'
-        self.logger = logger(module=self.module)
+        self.logger = logger(self.module)
+        self.ui = ui(self.module)
 
     def menu(self):
-        ui.prep(text=self.module)
+        self.ui.prep()
 
-        ui.createmenu([
+        self.ui.createmenu([
             'Joiner',
             'Leaver',
             'Back'
         ])
 
-        chosen = ui.input(text='Option', module=self.module)
+        chosen = self.ui.input('Option')
 
         if chosen == '1':
             joiner().menu()

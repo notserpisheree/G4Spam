@@ -8,13 +8,16 @@ from src.util.files import files
 from src.util.rpc import RPC
 
 class ui:
-    def title(title):
+    def __init__(self, module=None):
+        self.module = module
+
+    def title(self, title):
         os.system(f'title {title}')
 
-    def cls():
+    def cls(self):
         os.system('cls')
 
-    def center(text, size):
+    def center(self, text, size):
         text = str(text)
         lines = text.split('\n')
         centeredlines = []
@@ -30,17 +33,18 @@ class ui:
         
         return '\n'.join(centeredlines)
     
-    def bar():
-        bar = f'{co.main}«{len(files.readsplitlines('data\\tokens.txt'))}» Tokens                   «{len(files.readsplitlines('data\\proxies.txt'))}» Proxies'
+    def bar(self):
+        bar = fr'{co.main}«{len(files.gettokens())}» Tokens                   «{len(files.getproxies())}» Proxies'
 
-        bar: str = ui.center(text=bar, size=os.get_terminal_size().columns)
+        bar = self.center(text=bar, size=os.get_terminal_size().columns)
+        bar = str(bar)
 
         for char in ['»', '«']:
             bar = bar.replace(char, f'{co.main}{char}{co.reset}')
 
         print(bar)
 
-    def banner():
+    def banner(self):
         banner = fr'''{co.main}
    ________ __ _____                     
   / ____/ // // ___/____  ____ _____ ___ 
@@ -48,11 +52,11 @@ class ui:
 / /_/ /__  __/__/ / /_/ / /_/ / / / / / /
 \____/  /_/ /____/ .___/\__,_/_/ /_/ /_/ 
                 /_/                      ''' 
-        banner = ui.center(banner, os.get_terminal_size().columns)
+        banner = self.center(banner, os.get_terminal_size().columns)
 
         print(banner)
         
-    def menu():
+    def menu(self):
         menu = fr'''{co.main}
 THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
 ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -65,18 +69,18 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
 │                                                                                                │
 ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 '''     
-        menu: str = ui.center(text=menu, size=os.get_terminal_size().columns)
+        menu: str = self.center(text=menu, size=os.get_terminal_size().columns)
         
         for char in ['╭', '╯', '╮', '╰', '─', '│', '»', '«']:
             menu = menu.replace(char, f'{co.main}{char}{co.reset}')
 
         print(menu)
 
-    def input(text, module=None, yesno=False):
-        if module == None:
+    def input(self, text, yesno=False):
+        if self.module == None:
             module = ''
         else:
-            module = f'{co.main}[{co.reset}{module}{co.main}] '
+            module = f'{co.main}[{co.reset}{self.module}{co.main}] '
 
         if yesno:
             result = input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}({co.reset}y/n{co.main}) {co.main}» {co.reset}')
@@ -87,11 +91,11 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
             
         return input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}» {co.reset}')
     
-    def delayinput(module=None):
-        if module == None:
+    def delayinput(self):
+        if self.module == None:
             module = ''
         else:
-            module = f'{co.main}[{co.reset}{module}{co.main}] '
+            module = f'{co.main}[{co.reset}{self.module}{co.main}] '
 
         x = input(f'{module}{co.main}[{co.reset}Delay{co.main}] {co.main}» {co.reset}')
         try:
@@ -101,7 +105,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
         
         return x
 
-    def createmenu(options):
+    def createmenu(self, options):
         toprint = []
         for i, option in enumerate(options, 1):
             number = str(i).zfill(2)
@@ -109,14 +113,14 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
         
         print('\n'.join(toprint))
 
-    def prep(text=None):
-        RPC.update(f'Using {text}')
-        ui.cls()
-        ui.banner()
-        if text != None:
-            ui.title(f'G4Spam - {text} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
+    def prep(self):
+        RPC.update(f'Using {self.module}')
+        self.cls()
+        self.banner()
+        if self.module != None:
+            self.title(f'G4Spam - {self.module} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
 
-    def cut(text, length, end=''):
+    def cut(self, text, length, end=''):
         if len(text) <= length:
             return text
         return text[:length] + end
