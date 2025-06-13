@@ -63,6 +63,7 @@ class ui:
         
     def menu():
         menu = fr'''{co.main}
+THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
 ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                │
 │   «01» Server managment   «06» Webhook menu       «11» Annoying menu      «18» Unk             │
