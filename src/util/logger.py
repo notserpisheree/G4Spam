@@ -57,6 +57,14 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.darkred}{text}{co.main}]{co.reset}')
 
+    def hcaptcha(self, text: str, ts: bool=True):
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.cyan}{text}{co.main}]{co.reset}')
+
     def error(self, text: str, error: str='', ts: bool=True):
         if error == '':
             endstr = ''
