@@ -1,3 +1,10 @@
+'''
+This code is the property of R3CI.
+Unauthorized copying, distribution, or use is prohibited.
+Licensed under the GNU General Public License v3.0 (GPL-3.0).
+For more details, visit https://github.com/R3CI/G4Spam
+'''
+
 version = 1.0
 import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls')
 import subprocess
@@ -39,8 +46,10 @@ if not installedversion in result.stdout:
     subprocess.Popen(f'start cmd /k python "{os.path.abspath(__file__)}"', shell=True)
     sys.exit()
 
-webbrowser.open('https://discord.gg/spamming')
-webbrowser.open('https://t.me/g4spam')
+if not os.environ.get('USERNAME') == 'admin': # just so i dont get spammed with these when deving/testing also them being here is to make it easy to remove too (this does more than u think)
+    webbrowser.open('https://github.com/R3CI/G4Spam')
+    webbrowser.open('https://discord.gg/spamming')
+    webbrowser.open('https://t.me/g4spam')
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
