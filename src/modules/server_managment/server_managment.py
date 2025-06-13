@@ -10,6 +10,7 @@ from src.util.logger import logger
 from src.util.ui import ui
 
 from src.modules.server_managment.joiner import joiner
+from src.modules.server_managment.leaver import leaver
 
 class servermanagment:
     def __init__(self):
@@ -28,6 +29,12 @@ class servermanagment:
 
         if chosen == '1':
             joiner().menu()
+
+        elif chosen == '2':
+            leaver().menu()
+
+        elif chosen == '3':
+            return
         
         else:
             self.menu()
