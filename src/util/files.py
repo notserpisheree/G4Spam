@@ -23,6 +23,10 @@ class files:
     def read(path: str) -> str:
         with open(path, 'r') as f:
             return f.read()
+        
+    def readsplitlines(path: str) -> list:
+        with open(path, 'r') as f:
+            return f.read().splitlines()
 
     def createdir(path: str):
         if not os.path.exists(path):
@@ -60,6 +64,12 @@ class files:
     def getcwd() -> str:
         return os.getcwd()
     
+    def gettokens() -> list:
+        return files.readsplitlines('data\\tokens.txt')
+
+    def getproxies() -> list:
+        return files.readsplitlines('data\\proxies.txt')
+
     def runtasks():
         for d in _dirs:
             if not files.exists(d):
