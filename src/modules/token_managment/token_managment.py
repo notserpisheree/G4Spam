@@ -16,7 +16,7 @@ class tokenmanagment:
         self.ui = ui(self.module)
 
     def menu(self):
-        self.ui.prep(self.module)
+        self.ui.prep()
         self.ui.createmenu([
             'Checker',
             'Back'

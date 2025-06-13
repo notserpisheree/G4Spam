@@ -118,7 +118,7 @@ class joiner:
                 )
 
                 if r.status_code == 200:
-                    servername = ui.cut(self.servername, 20, '...')
+                    servername = self.ui.cut(self.servername, 20, '...')
                     self.logger.succeded(f'{ctoken} Joined {servername}')
 
                 elif 'retry_after' in r.text:

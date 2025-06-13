@@ -65,8 +65,8 @@ class leaver:
 
     def menu(self):
         self.ui.prep()
-        self.serverid = ui.input('Server ID')
-        self.delay = ui.delayinput()
+        self.serverid = self.ui.input('Server ID')
+        self.delay = self.ui.delayinput()
 
         threading(
             func=self.leave,

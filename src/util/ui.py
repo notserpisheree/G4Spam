@@ -121,6 +121,11 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
             self.title(f'G4Spam - {self.module} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
 
     def cut(self, text, length, end=''):
-        if len(text) <= length:
-            return text
-        return text[:length] + end
+        try:
+            text = str(text)
+            length = int(length)
+            if len(text) <= length:
+                return text
+            return text[:length] + end
+        except Exception:
+            return str(text)
