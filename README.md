@@ -1,5 +1,8 @@
-# ⚠️ WORK IN PROGRESS ⚠️
-# ⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐
+<div align="center">
+⚠️ WORK IN PROGRESS ⚠️
+  
+⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐
+</div>
 
 <p align="center">
   <img src="https://i.imgur.com/ytj2i7l.png" width="250" height="250">
