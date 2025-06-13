@@ -13,6 +13,8 @@ from src.util.ui import ui
 from src.util.logger import logger
 from src.util.other import other
 
+from src.modules.server_managment.server_managment import servermanagment
+
 logger = logger(module='Main')
 logger.log(text='Getting repo stars...', ts=True)
 stars = other.getrepostars()
@@ -30,7 +32,7 @@ while True:
     chosen = ui.input(text='Option')
 
     options = {
-        
+        '1': servermanagment().menu,
         '20': lambda: exit(),
     }
     try:
