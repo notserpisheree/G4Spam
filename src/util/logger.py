@@ -28,7 +28,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
 
-    def errordatabase(self, text):
+    def errordatabase(self, text: str) -> str:
         db = {
             '10014': 'Unknown emoji',
             '30010': 'Max reactions on message',
