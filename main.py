@@ -23,8 +23,8 @@ while True:
     chosen = ui.input(text='Option')
 
     options = {
+        
         '20': lambda: exit(),
-        '0': lambda: ui.createmenu(['cipek', 'cipek2', 'cipek3'])
     }
     try:
         options[chosen]()
