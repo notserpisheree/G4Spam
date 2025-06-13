@@ -39,8 +39,8 @@ if not installedversion in result.stdout:
     subprocess.Popen(f'start cmd /k python "{os.path.abspath(__file__)}"', shell=True)
     sys.exit()
 
-#webbrowser.open('https://discord.gg/spamming')
-#webbrowser.open('https://t.me/g4spam')
+webbrowser.open('https://discord.gg/spamming')
+webbrowser.open('https://t.me/g4spam')
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
