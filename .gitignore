@@ -162,3 +162,5 @@ test.py
 src/wasran.txt
 /LimeV2VENV
 /data
+data/proxies.txt
+data/tokens.txt
