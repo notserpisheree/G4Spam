@@ -7,6 +7,7 @@ For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.files import files
+from src.util.rpc import RPC
 # «
 # » 
 # ➤
@@ -119,6 +120,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
         print('\n'.join(toprint))
 
     def prep(text: str=None):
+        RPC.update(f'Using {text}')
         ui.cls()
         ui.banner()
         if text != None:

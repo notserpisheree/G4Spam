@@ -17,7 +17,7 @@ from src.util.files import files
 class checker:
     def __init__(self):
         self.module = 'Checker'
-        self.logger = logger(module=self.module)
+        self.logger = logger(self.module)
 
         self.valids = []
         self.failed = []
@@ -34,10 +34,10 @@ class checker:
         self.hasnomfa = []
 
     def check(self, token, cl: client=None):
-        ctoken = ui.cut(text=token, length=20, end='...')
+        ctoken = ui.cut(token, 20, '...')
         try:
             if not cl:
-                cl = client(token=token, reffer='https://discord.com/channels/@me')
+                cl = client(token, 'https://discord.com/channels/@me')
 
             r = cl.sess.get(
                 f'https://discord.com/api/v9/users/@me/library',
@@ -104,29 +104,29 @@ class checker:
 
                     elif 'retry_after' in r.text:
                         limit = r.json().get('retry_after', 1.5)
-                        self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=limit)
+                        self.logger.ratelimited(f'{ctoken} Rate limited', limit)
                         time.sleep(float(limit))
                         info(token, client)
 
                     elif 'Try again later' in r.text:
-                        self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=5)
+                        self.logger.ratelimited(f'{ctoken} Rate limited', 5)
                         time.sleep(5)
                         info(token, client)
 
                     elif 'Cloudflare' in r.text:
-                        self.logger.cloudflared(text=f'{ctoken} Cloudflare rate limited', fortime=10)
+                        self.logger.cloudflared(f'{ctoken} Cloudflare rate limited', 10)
                         time.sleep(10)
                         info(token, client)
                     
                     elif 'captcha_key' in r.text:
-                        self.logger.hcaptcha(text=f'{ctoken} Hcaptcha required')
+                        self.logger.hcaptcha(f'{ctoken} Hcaptcha required')
 
                     elif 'You need to verify' in r.text:
-                        self.logger.locked(text=f'{ctoken} Locked/Flagged')
+                        self.logger.locked(f'{ctoken} Locked/Flagged')
 
                     else:
                         error = self.logger.errordatabase(r.text)
-                        self.logger.error(text=f'{ctoken} Failed to check', error=error)
+                        self.logger.error(f'{ctoken} Failed to check', error)
                     
                     return domain, mfa, ev, email, phone, nitro, age
 
@@ -136,37 +136,37 @@ class checker:
 
             elif 'retry_after' in r.text:
                 limit = r.json().get('retry_after', 1.5)
-                self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=limit)
+                self.logger.ratelimited(f'{ctoken} Rate limited', limit)
                 time.sleep(float(limit))
                 self.check(token, client)
 
             elif 'Try again later' in r.text:
-                self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=5)
+                self.logger.ratelimited(f'{ctoken} Rate limited', 5)
                 time.sleep(5)
                 self.check(token, client)
 
             elif 'Cloudflare' in r.text:
-                self.logger.cloudflared(text=f'{ctoken} Cloudflare rate limited', fortime=10)
+                self.logger.cloudflared(f'{ctoken} Cloudflare rate limited', 10)
                 time.sleep(10)
                 self.check(token, client)
             
             elif 'captcha_key' in r.text:
-                self.logger.hcaptcha(text=f'{ctoken} Hcaptcha required')
+                self.logger.hcaptcha(f'{ctoken} Hcaptcha required')
 
             elif 'You need to verify' in r.text:
-                self.logger.locked(text=f'{ctoken} Locked/Flagged')
+                self.logger.locked(f'{ctoken} Locked/Flagged')
 
             else:
                 error = self.logger.errordatabase(r.text)
-                self.logger.error(text=f'{ctoken} Failed to check', error=error)
+                self.logger.error(f'{ctoken} Failed to check', error)
 
         except Exception as e:
-            self.logger.error(text=f'{ctoken} Failed to check', error=e)
+            self.logger.error(f'{ctoken} Failed to check', e)
 
     def menu(self):
-        ui.prep(text=self.module)
+        ui.prep(self.module)
 
-        self.delay = ui.delayinput(module=self.module)
+        self.delay = ui.delayinput(self.module)
 
         threading(
             func=self.check,
@@ -175,13 +175,13 @@ class checker:
         )
 
         if self.valids:
-            save = ui.input(text='Replace tokens.txt with only valid tokens', module=self.module, yesno=True)
+            save = ui.input('Replace tokens.txt with only valid tokens', self.module, True)
             if save:
                 with open('data\\tokens.txt', 'w') as f:
                     f.write('\n'.join(self.valids))
         
         else:
-            self.logger.log(text='Blud has no valid tokens 😭😭😭')
+            self.logger.log('Blud has no valid tokens 😭😭😭')
 
         timestamp = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
         timestamp = f'{timestamp}--{len(files.gettokens())}-TOKENS'

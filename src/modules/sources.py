@@ -3,7 +3,8 @@ from src.util.ui import ui
 
 class sources:
     def menu():
-        ui.prep(text='Sources')
+        module = 'Sources'
+        ui.prep(module)
         ui.createmenu([
             'Private raiders',
             'Proxies',
@@ -12,7 +13,7 @@ class sources:
             'Back'
         ])
 
-        chosen = ui.input(text='Option')
+        chosen = ui.input('Option')
 
         if chosen == '1': 
             webbrowser.open('https://r3ci.sellhub.cx')
@@ -25,7 +26,7 @@ class sources:
                 'Back'
             ])
 
-            chosen = ui.input(text='Option')
+            chosen = ui.input('Option', module)
 
             if chosen == '1':   webbrowser.open('https://iproyal.com/?r=429481')
             elif chosen == '2': webbrowser.open('https://marsproxies.com/r/97040')
@@ -39,7 +40,7 @@ class sources:
                 'Back'
             ])
 
-            chosen = ui.input(text='Option')
+            chosen = ui.input('Option', module)
 
             if chosen == '1':   webbrowser.open('https://r3ci.sellhub.cx/product/Discord-tokens/')
             elif chosen == '2': webbrowser.open('https://www.tokenu.net?ref=r3ci')

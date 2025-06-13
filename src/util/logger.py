@@ -30,7 +30,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.green}{text}{co.main}]{co.reset}')
 
-    def ratelimited(self, text: str, ts: bool=True, fortime: float=0):
+    def ratelimited(self, text: str, fortime: float=0, ts: bool=True):
         if fortime == 0:
             endstr = ''
         else:
@@ -43,7 +43,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.yellow}{text}{co.main}] {endstr}{co.reset}')
 
-    def cloudflared(self, text: str, ts: bool=True, fortime: float=0):
+    def cloudflared(self, text: str, fortime: float=0, ts: bool=True):
         if fortime == 0:
             endstr = ''
         else:

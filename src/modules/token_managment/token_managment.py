@@ -14,17 +14,17 @@ from src.modules.token_managment.checker import checker
 class tokenmanagment:
     def __init__(self):
         self.module = 'Token Managment'
-        self.logger = logger(module=self.module)
+        self.logger = logger(self.module)
 
     def menu(self):
-        ui.prep(text=self.module)
+        ui.prep(self.module)
 
         ui.createmenu([
             'Checker',
             'Back'
         ])
 
-        chosen = ui.input(text='Option')
+        chosen = ui.input('Option')
 
         if chosen == '1':
             checker().menu()

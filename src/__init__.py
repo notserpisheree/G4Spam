@@ -12,6 +12,7 @@ import time
 try:
     from datetime import datetime as dt
     import os
+    from pypresence import Presence
     import webbrowser
     import re
     import json

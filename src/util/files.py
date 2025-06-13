@@ -78,5 +78,3 @@ class files:
         for f in _files:
             if not files.exists(f):
                 files.createfile(f)
-
-files.runtasks()
