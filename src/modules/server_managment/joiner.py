@@ -10,10 +10,14 @@ from src.util.logger import logger
 from src.util.client import client
 from src.util.ui import ui
 from src.util.apibypassing import apibypassing
+from src.util.discordutils import discordutils
+from src.util.threading import threading
+from src.util.files import files
 
 class joiner:
     def __init__(self):
-        self.logger = logger(module='Joiner')
+        self.module = 'Joiner'
+        self.logger = logger(module=self.module)
         self.invite = None
 
         self.serverid = None
@@ -97,8 +101,7 @@ class joiner:
                 'location_channel_type': self.channeltype
             })
 
-            dojoin = self.discover(token, cl)
-            if dojoin:
+            if self.discover(token, cl):
                 r = cl.sess.post(
                     f'https://discord.com/api/v9/invites/{self.invite}',
                     headers=cl.headers,
@@ -142,3 +145,17 @@ class joiner:
 
         except Exception as e:
             self.logger.error(text=f'{token} Failed to join', error=e)
+
+    def menu(self):
+        ui.prep(text=self.module)
+
+        self.invite = discordutils.extractinv(ui.input(text='Invite link', module=self.module))
+        self.delay = ui.delayinput(module=self.module)
+
+        threading(
+            func=self.join,
+            tokens=files.gettokens(),
+            delay=self.delay,
+        )
+
+        self.join(self.invite)
