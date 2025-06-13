@@ -129,7 +129,7 @@ class joiner:
                     self.join(token, client)
 
                 elif 'Try again later' in r.text:
-                    self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=limit)
+                    self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=5)
                     time.sleep(5)
                     self.join(token, client)
 
