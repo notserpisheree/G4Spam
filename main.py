@@ -18,14 +18,18 @@ from src.modules.server_managment.server_managment import servermanagment
 from src.modules.sources import sources
 
 logger = logger(module='Main')
+logger.log(text='Adding a launch to stats', ts=True)
+other.addlaunch()
 logger.log(text='Getting repo stars...', ts=True)
 stars = other.getrepostars()
+logger.log(text='Getting launches...', ts=True)
+launches = other.getlaunches()
 
 logger.log(text='Finished starting G4Spam', ts=True)
 time.sleep(1)
 
 while True:
-    ui.title(f'G4Spam - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
+    ui.title(f'G4Spam ({launches}) - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
     ui.cls()
     ui.banner()
     ui.bar()
