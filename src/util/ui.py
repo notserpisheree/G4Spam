@@ -1,31 +1,21 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.files import files
 from src.util.rpc import RPC
-# «
-# » 
-# ➤
-# ◜ ◝
-# ◞ ◟
-# ❘
-# ╭ ╮
-# ╰ ╯
-# │
-# ─
+
 class ui:
-    def title(title: str):
+    def title(title):
         os.system(f'title {title}')
 
     def cls():
         os.system('cls')
 
-    def center(text: str, size: int) -> str:
+    def center(text, size):
+        text = str(text)
         lines = text.split('\n')
         centeredlines = []
         for line in lines:
@@ -82,7 +72,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
 
         print(menu)
 
-    def input(text: str, module: str=None, yesno: bool=False) -> str:
+    def input(text, module=None, yesno=False):
         if module == None:
             module = ''
         else:
@@ -97,7 +87,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
             
         return input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}» {co.reset}')
     
-    def delayinput(module: str=None) -> str:
+    def delayinput(module=None):
         if module == None:
             module = ''
         else:
@@ -111,7 +101,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
         
         return x
 
-    def createmenu(options: list):
+    def createmenu(options):
         toprint = []
         for i, option in enumerate(options, 1):
             number = str(i).zfill(2)
@@ -119,14 +109,14 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
         
         print('\n'.join(toprint))
 
-    def prep(text: str=None):
+    def prep(text=None):
         RPC.update(f'Using {text}')
         ui.cls()
         ui.banner()
         if text != None:
             ui.title(f'G4Spam - {text} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
 
-    def cut(text: str, length: int, end: str = '') -> str:
+    def cut(text, length, end=''):
         if len(text) <= length:
             return text
         return text[:length] + end

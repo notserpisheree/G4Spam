@@ -1,28 +1,26 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 
 class logger:
-    def __init__(self, module: str='Logger'):
+    def __init__(self, module='Logger'):
         self.module = module
 
     def gettimestamp(self):
         timestamp = dt.now().strftime('%H:%M:%S')
         return timestamp
 
-    def log(self, text: str, ts: bool=False):
+    def log(self, text, ts=False):
         if ts:
             ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
         else:
             ts = ''
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
 
-    def succeded(self, text: str, ts: bool=True):
+    def succeded(self, text, ts=True):
         if ts:
             ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
         else:
@@ -30,7 +28,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.green}{text}{co.main}]{co.reset}')
 
-    def ratelimited(self, text: str, fortime: float=0, ts: bool=True):
+    def ratelimited(self, text, fortime=0, ts=True):
         if fortime == 0:
             endstr = ''
         else:
@@ -43,7 +41,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.yellow}{text}{co.main}] {endstr}{co.reset}')
 
-    def cloudflared(self, text: str, fortime: float=0, ts: bool=True):
+    def cloudflared(self, text, fortime=0, ts=True):
         if fortime == 0:
             endstr = ''
         else:
@@ -56,7 +54,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.orange}{text}{co.main}] {endstr}{co.reset}')
 
-    def locked(self, text: str, ts: bool=True):
+    def locked(self, text, ts=True):
         if ts:
             ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
         else:
@@ -64,7 +62,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.darkred}{text}{co.main}]{co.reset}')
 
-    def hcaptcha(self, text: str, ts: bool=True):
+    def hcaptcha(self, text, ts=True):
         if ts:
             ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
         else:
@@ -72,7 +70,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.cyan}{text}{co.main}]{co.reset}')
 
-    def error(self, text: str, error: str='', ts: bool=True):
+    def error(self, text, error='', ts=True):
         if error == '':
             endstr = ''
         else:
@@ -85,7 +83,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
 
-    def errordatabase(self, text: str) -> str:
+    def errordatabase(self, text):
         db = {
             '10014': 'Unknown emoji',
             '30010': 'Max reactions on message',

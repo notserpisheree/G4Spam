@@ -8,7 +8,7 @@ For more details, visit https://github.com/R3CI/G4Spam
 from src import *
 
 class other:
-    def getrepostars() -> str:
+    def getrepostars():
         r = requests.get(f'https://api.github.com/repos/R3CI/G4Spam')
         return r.json().get('stargazers_count', 'Unk')
     
@@ -18,13 +18,13 @@ class other:
         except:
             pass
 
-    def getlaunches() -> str:
+    def getlaunches():
         try:
             return str(requests.get('http://r3ci.pythonanywhere.com/launches', timeout=3).text).strip()
         except:
             return '0'
 
-    def delay(seconds: float) -> None:
+    def delay(seconds) :
         seconds = float(seconds)
         if seconds != 0:
             time.sleep(seconds)

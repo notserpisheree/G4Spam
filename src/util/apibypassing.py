@@ -1,9 +1,7 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 
@@ -59,7 +57,7 @@ class apibypassing:
         }
         
 
-    def getcookie(self, headers: dict, session: curlcffi.Session) -> requests.cookies.RequestsCookieJar:
+    def getcookie(self, headers, session: curlcffi.Session):
         # This doesnt grab ur acc cookies or wtv these cookies have no meaning and will not make me somehow have acces to ur acc using them as NOTHING is attached to them cookies are just needed for it to work good so please dont be a idiot (please be smart)
         r = session.get(
             'https://discord.com',
@@ -68,5 +66,5 @@ class apibypassing:
 
         return r.cookies
     
-    def encode(self, data: dict | str) -> str:
+    def encode(self, data):
         return base64.b64encode(json.dumps(data, separators=(',', ':')).encode('utf-8')).decode('utf-8')

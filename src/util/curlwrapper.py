@@ -1,14 +1,11 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
-from src.util import logger
-
-logger = logger(module='Curl Wrapper')
+from src.util.logger import logger
+logger = logger('Curl Wrapper')
 
 class responsewrapper:
     def __init__(self, response=None, error=None):
@@ -99,36 +96,36 @@ class sessionwrapper:
             r = self.session.request(method, url, **kwargs)
             return responsewrapper(r)
         
-        except curlcffi_.curl.CurlError as e    :
-            logger.error(text=f'Curl error', error=e, ts=True)
+        except curlcffi_.curl.CurlError as e:
+            logger.error(f'Curl error', e)
             return responsewrapper(error=f'Curl error: {e}')
         
         except curlcffi.exceptions.ConnectionError as e:
-            logger.error(text=f'Connection error', error=e, ts=True)
+            logger.error(f'Connection error', e)
             return responsewrapper(error=f'Connection error {e}')
         
         except curlcffi.exceptions.HTTPError as e:
-            logger.error(text=f'HTTP error', error=e, ts=True)
+            logger.error(f'HTTP error', e)
             return responsewrapper(error=f'HTTP error {e}')
         
         except curlcffi.exceptions.ReadTimeout as e:
-            logger.error(text=f'Timeout', error=e, ts=True)
+            logger.error(f'Timeout', e)
             return responsewrapper(error=f'Read timeout {e}')
         
         except curlcffi.exceptions.Timeout as e:
-            logger.error(text=f'Timeout', error=e, ts=True)
+            logger.error(f'Timeout', e)
             return responsewrapper(error=f'Request timeout {e}')
         
         except curlcffi.exceptions.TooManyRedirects as e:
-            logger.error(text=f'Too many redirects', error=e, ts=True)
+            logger.error(f'Too many redirects', e)
             return responsewrapper(error=f'Too many redirects {e}')
         
         except curlcffi.exceptions.RequestException as e:
-            logger.error(text=f'Request exception', error=e, ts=True)
+            logger.error(f'Request exception', e)
             return responsewrapper(error=f'Request exception {e}')
 
         except Exception as e:
-            logger.error(text=e, ts=True)
+            logger.error(e)
             return responsewrapper(error=e)
     
     def get(self, url, **kwargs):

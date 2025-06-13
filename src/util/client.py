@@ -1,23 +1,20 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.logger import logger
 from src.util.apibypassing import apibypassing
 from src.util.curlwrapper import curlwrapper
-logger = logger(module='Client')
-
+logger = logger('Client')
 apibypassing = apibypassing()
-logger.log(text=f'Latest info fingerprint={apibypassing.fingerprint} client_build={apibypassing.clientbuild}', ts=True)
+
+logger.log(f'Latest info fingerprint={apibypassing.fingerprint} client_build={apibypassing.clientbuild}', True)
 
 tempsess = curlwrapper.Session(impersonate=apibypassing.fingerprint)
-cookie: requests.cookies.RequestsCookieJar = apibypassing.getcookie(headers=apibypassing.headers, session=tempsess)
-
-logger.log(text=f'Got discord info', ts=True)
+cookie: requests.cookies.RequestsCookieJar = apibypassing.getcookie(apibypassing.headers, tempsess)
+logger.log(f'Got discord info', True)
 
 class client:
     def __init__(self, token=None, reffer='https://discord.com/channels/@me'):

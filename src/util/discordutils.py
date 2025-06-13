@@ -1,14 +1,19 @@
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
+
 from src import *
 
 class discordutils:
-    def extractinv(invite: str) -> str:
+    def extractinv(invite):
         match: re.Match = re.search(r'(?:(?:http:\/\/|https:\/\/)?discord\.gg\/|discordapp\.com\/invite\/|discord\.com\/invite\/)?([a-zA-Z0-9-]+)', invite)
         if match: 
             return match.group(1)
         
         return invite
     
-    def getid(token: str) -> str:
+    def getid(token) :
         period = token.find('.')
         if period != -1: 
             cut = token[:period]
