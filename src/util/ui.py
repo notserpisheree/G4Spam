@@ -40,7 +40,7 @@ class ui:
         return '\n'.join(centeredlines)
     
     def bar():
-        bar = f'{co.main}«{len(files.read('data\\tokens.txt'))}» Tokens                   «{len(files.read('data\\proxies.txt'))}» Proxies'
+        bar = f'{co.main}«{len(files.readsplitlines('data\\tokens.txt'))}» Tokens                   «{len(files.readsplitlines('data\\proxies.txt'))}» Proxies'
 
         bar: str = ui.center(text=bar, size=os.get_terminal_size().columns)
 
