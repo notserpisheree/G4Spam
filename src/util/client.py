@@ -7,15 +7,15 @@ logger = logger(module='Client')
 apibypassing = apibypassing()
 logger.log(text=f'Latest info fingerprint={apibypassing.fingerprint} client_build={apibypassing.clientbuild}', ts=True)
 
-tempsession = curlwrapper.Session(impersonate=apibypassing.fingerprint)
-cookie: requests.cookies.RequestsCookieJar = apibypassing.getcookie(headers=apibypassing.headers, session=tempsession)
+tempsess = curlwrapper.Session(impersonate=apibypassing.fingerprint)
+cookie: requests.cookies.RequestsCookieJar = apibypassing.getcookie(headers=apibypassing.headers, session=tempsess)
 
 logger.log(text=f'Got discord info', ts=True)
 
 class client:
     def __init__(self, token=None, reffer='https://discord.com/channels/@me'):
-        self.session = curlwrapper.Session(impersonate=apibypassing.fingerprint)
-        self.session.cookies.update(cookie)
+        self.sess = curlwrapper.Session(impersonate=apibypassing.fingerprint)
+        self.sess.cookies.update(cookie)
 
         self.headers = apibypassing.headers
         self.headers['reffer'] = reffer
