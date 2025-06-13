@@ -126,17 +126,17 @@ class joiner:
                     limit = r.json().get('retry_after', 1.5)
                     self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=limit)
                     time.sleep(float(limit))
-                    return self.discover(token, client)
+                    return self.join(token, client)
 
                 elif 'Try again later' in r.text:
                     self.logger.ratelimited(text=f'{ctoken} Rate limited', fortime=limit)
                     time.sleep(5)
-                    return self.discover(token, client)
+                    return self.join(token, client)
 
                 elif 'Cloudflare' in r.text:
                     self.logger.cloudflared(text=f'{ctoken} Cloudflare rate limited', fortime=10)
                     time.sleep(10)
-                    return self.discover(token, client)
+                    return self.join(token, client)
                 
                 elif 'captcha_key' in r.text:
                     self.logger.hcaptcha(text=f'{ctoken} Hcaptcha required')
