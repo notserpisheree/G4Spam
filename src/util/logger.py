@@ -15,7 +15,49 @@ class logger:
             ts = ''
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.reset}{text}{co.main}]{co.reset}')
 
-    def error(self, text: str, error: str='', ts: bool=False):
+    def succeded(self, text: str, ts: bool=True):
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.green}{text}{co.main}]{co.reset}')
+
+    def ratelimited(self, text: str, ts: bool=True, fortime: float=0):
+        if fortime == 0:
+            endstr = ''
+        else:
+            endstr = f'{co.main}[{co.yellow}{fortime}{co.main}]{co.reset}'
+
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.yellow}{text}{co.main}] {endstr}{co.reset}')
+
+    def cloudflared(self, text: str, ts: bool=True, fortime: float=0):
+        if fortime == 0:
+            endstr = ''
+        else:
+            endstr = f'{co.main}[{co.orange}{fortime}{co.main}]{co.reset}'
+
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.orange}{text}{co.main}] {endstr}{co.reset}')
+
+    def locked(self, text: str, ts: bool=True):
+        if ts:
+            ts = f'{co.main}[{co.reset}{self.gettimestamp()}{co.main}] '
+        else:
+            ts = ''
+
+        print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.darkred}{text}{co.main}]{co.reset}')
+
+    def error(self, text: str, error: str='', ts: bool=True):
         if error == '':
             endstr = ''
         else:
