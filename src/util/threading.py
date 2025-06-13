@@ -1,6 +1,8 @@
 from src import *
 from src.util.logger import logger
 from src.util.other import other
+from curl_cffi import exceptions as curl_exceptions
+from curl_cffi.curl import CurlError
 
 class threading:
     def __init__(self, func, tokens=[], args=[], delay=0):
@@ -23,22 +25,25 @@ class threading:
             for thread in threads:
                 thread.join()
 
-        except curlcffi_.CurlError as e:
+        except CurlError as e:
             self.log.error(e)
 
-        except curlcffi_.requests.exceptions as e:
+        except curl_exceptions.ConnectionError as e:
             self.log.error(e)
 
-        except curlcffi_.requests.exceptions.ConnectionError as e:
-            self.log.error(e)
-        
-        except curlcffi_.requests.exceptions.HTTPError as e:
-            self.log.error(e)
-        
-        except curlcffi_.requests.exceptions.ReadTimeout as e:
+        except curl_exceptions.HTTPError as e:
             self.log.error(e)
 
-        except curlcffi_.requests.exceptions.Timeout as e:
+        except curl_exceptions.ReadTimeout as e:
+            self.log.error(e)
+
+        except curl_exceptions.Timeout as e:
+            self.log.error(e)
+
+        except curl_exceptions.TooManyRedirects as e:
+            self.log.error(e)
+
+        except curl_exceptions.RequestException as e:
             self.log.error(e)
 
         except Exception as e:

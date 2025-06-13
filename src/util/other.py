@@ -13,5 +13,6 @@ class other:
         return r.json().get('stargazers_count', 'Unk')
     
     def delay(seconds: float) -> None:
+        seconds = float(seconds)
         if seconds != 0:
             time.sleep(seconds)
