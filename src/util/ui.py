@@ -93,3 +93,8 @@ class ui:
             toprint.append(f'{co.main}[{co.reset}{number}{co.main}] » {co.main}[{co.reset}{option}{co.main}]')
         
         print('\n'.join(toprint))
+
+    def cut(text: str, length: int, end: str = '') -> str:
+        if len(text) <= length:
+            return text
+        return text[:length] + end
