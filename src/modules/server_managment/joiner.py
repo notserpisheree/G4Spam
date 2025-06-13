@@ -14,6 +14,8 @@ from src.util.discordutils import discordutils
 from src.util.threading import threading
 from src.util.files import files
 
+apibypassing = apibypassing()
+
 class joiner:
     def __init__(self):
         self.module = 'Joiner'
@@ -94,7 +96,7 @@ class joiner:
             if not cl:
                 cl = client(token=token, reffer='https://discord.com/discovery/servers')
             
-            client.headers['x-context-properties'] = apibypassing.encode({
+            client.headers['x-context-properties'] = apibypassing.encode(data={
                 'location': 'Join Guild',
                 'location_guild_id': self.serverid,
                 'location_channel_id': self.channelid,
@@ -112,7 +114,7 @@ class joiner:
 
                 if r.status_code == 200:
                     servername = ui.cut(text=self.servername, length=20, end='...')
-                    self.logger.succeded(text=f'Joined {servername}')
+                    self.logger.succeded(text=f'{ctoken} Joined {servername}')
 
                 elif 'retry_after' in r.text:
                     limit = r.json().get('retry_after', 1.5)
@@ -141,10 +143,10 @@ class joiner:
                     self.logger.error(text=f'{ctoken} Failed to discover invite', error=error)
 
             else:
-                self.logger.error(text=f'{token} Skipping join as discovery failed')
+                self.logger.error(text=f'{ctoken} Skipping join as discovery failed')
 
         except Exception as e:
-            self.logger.error(text=f'{token} Failed to join', error=e)
+            self.logger.error(text=f'{ctoken} Failed to join', error=e)
 
     def menu(self):
         ui.prep(text=self.module)
