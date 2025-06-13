@@ -146,7 +146,7 @@ class joiner:
 
                 else:
                     error = self.logger.errordatabase(r.text)
-                    self.logger.error(text=f'{ctoken} Failed to discover invite', error=error)
+                    self.logger.error(text=f'{ctoken} Failed to join', error=error)
 
             else:
                 self.logger.error(text=f'{ctoken} Skipping join as discovery failed')
