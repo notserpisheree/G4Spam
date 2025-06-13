@@ -15,6 +15,7 @@ try:
     import webbrowser
     import re
     import json
+    import traceback
     import threading as threadinglib
     import uuid
     from urllib.parse import urlparse
@@ -75,3 +76,6 @@ class co:
     black = rgb(0, 0, 0)
     white = rgb(255, 255, 255)
     reset = '\033[0m'
+
+from src.util.errorhandler import handle_exception
+sys.excepthook = handle_exception
