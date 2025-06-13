@@ -15,14 +15,14 @@ from src.util.other import other
 
 from src.modules.server_managment.server_managment import servermanagment
 
+from src.modules.sources import sources
+
 logger = logger(module='Main')
 logger.log(text='Getting repo stars...', ts=True)
 stars = other.getrepostars()
 
 logger.log(text='Finished starting G4Spam', ts=True)
 time.sleep(1)
-
-print(1/0)
 
 while True:
     ui.title(f'G4Spam - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
@@ -36,12 +36,13 @@ while True:
 
     options = {
         '1': servermanagment().menu,
+        '19': sources.menu,
         '20': lambda: exit(),
     }
     try:
         options[chosen]()
     except KeyError:
-        logger.error(text='Invalid option', ts=False)
+        logger.log(text='Invalid option', ts=False)
     
     logger.log(text='Finished, enter to continue')
     input('')
