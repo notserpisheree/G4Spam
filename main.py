@@ -32,6 +32,7 @@ while True:
     ui.menu()
 
     logger.log(text='Welcome to G4Spam made by r3ci <3 github.com/R3CI/G4Spam', ts=False)
+    logger.log(text=f'Current version is {version}', ts=False)
     chosen = ui.input(text='Option')
 
     options = {
