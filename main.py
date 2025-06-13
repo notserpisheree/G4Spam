@@ -14,7 +14,7 @@ from src.util.logger import logger
 from src.util.other import other
 
 from src.modules.server_managment.server_managment import servermanagment
-
+from src.modules.token_managment.token_managment import tokenmanagment
 from src.modules.sources import sources
 
 logger = logger(module='Main')
@@ -41,6 +41,7 @@ while True:
 
     options = {
         '1': servermanagment().menu,
+        '2': tokenmanagment().menu,
         '19': sources.menu,
         '20': lambda: exit(),
     }

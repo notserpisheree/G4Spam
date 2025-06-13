@@ -88,7 +88,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
             module = f'{co.main}[{co.reset}{module}{co.main}] '
 
         if yesno:
-            result = input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}({co.reset}y/n{co.main}) {co.reset}')
+            result = input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}({co.reset}y/n{co.main}) {co.main}» {co.reset}')
             if result in ['y', 'Y', 'yes', 'Yes', 'YES']:
                 return True
             else:

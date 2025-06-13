@@ -14,10 +14,11 @@ from src.modules.server_managment.leaver import leaver
 
 class servermanagment:
     def __init__(self):
-        self.logger = logger(module='Server Managment')
+        self.module = 'Server Managment'
+        self.logger = logger(module=self.module)
 
     def menu(self):
-        ui.prep(text='Server Managment')
+        ui.prep(text=self.module)
 
         ui.createmenu([
             'Joiner',
@@ -25,7 +26,7 @@ class servermanagment:
             'Back'
         ])
 
-        chosen = ui.input(text='Option')
+        chosen = ui.input(text='Option', module=self.module)
 
         if chosen == '1':
             joiner().menu()

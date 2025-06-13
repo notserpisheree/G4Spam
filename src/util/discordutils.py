@@ -7,3 +7,9 @@ class discordutils:
             return match.group(1)
         
         return invite
+    
+    def getid(token: str) -> str:
+        period = token.find('.')
+        if period != -1: 
+            cut = token[:period]
+        return base64.b64decode(cut + '==').decode()
