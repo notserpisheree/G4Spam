@@ -7,11 +7,27 @@ For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 from src.util.logger import logger
+from src.util.ui import ui
+
+from src.modules.server_managment.joiner import joiner
 
 class servermanagment:
     def __init__(self):
         self.logger = logger(module='Server Managment')
 
-    
     def menu(self):
-        pass
+        ui.prep(text='Server Managment')
+
+        ui.createmenu([
+            'Joiner',
+            'Leaver',
+            'Back'
+        ])
+
+        chosen = ui.input(text='Option')
+
+        if chosen == '1':
+            joiner().menu()
+        
+        else:
+            self.menu()
