@@ -85,14 +85,30 @@ class ui:
             module = ''
         else:
             module = f'{co.main}[{co.reset}{module}{co.main}] '
+
         if yesno:
             result = input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}({co.reset}y/n{co.main}) {co.reset}')
             if result in ['y', 'Y', 'yes', 'Yes', 'YES']:
                 return True
             else:
                 return False
+            
         return input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}» {co.reset}')
     
+    def delayinput(module: str=None) -> str:
+        if module == None:
+            module = ''
+        else:
+            module = f'{co.main}[{co.reset}{module}{co.main}] '
+
+        x = input(f'{module}{co.main}[{co.reset}Delay{co.main}] {co.main}» {co.reset}')
+        try:
+            float(x)
+        except:
+            return 0
+        
+        return x
+
     def createmenu(options: list):
         toprint = []
         for i, option in enumerate(options, 1):
@@ -100,6 +116,12 @@ class ui:
             toprint.append(f'{co.main}[{co.reset}{number}{co.main}] » {co.main}[{co.reset}{option}{co.main}]')
         
         print('\n'.join(toprint))
+
+    def prep(text: str=None):
+        ui.cls()
+        ui.banner()
+        if text != None:
+            ui.title(f'G4Spam - {text} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
 
     def cut(text: str, length: int, end: str = '') -> str:
         if len(text) <= length:
