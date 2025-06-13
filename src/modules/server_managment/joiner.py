@@ -30,8 +30,8 @@ class joiner:
 
 
     def discover(self, token, cl: client=None):
+        ctoken = ui.cut(text=token, length=20, end='...')
         try:
-            ctoken = ui.cut(text=token, length=20, end='...')
             if not cl:
                 cl = client(token=token, reffer='https://discord.com/discovery/servers')
 
@@ -91,12 +91,12 @@ class joiner:
             return False
 
     def join(self, token, cl: client=None):
+        ctoken = ui.cut(text=token, length=20, end='...')
         try:
-            ctoken = ui.cut(text=token, length=20, end='...')
             if not cl:
                 cl = client(token=token, reffer='https://discord.com/discovery/servers')
             
-            client.headers['x-context-properties'] = apibypassing.encode(data={
+            cl.headers['x-context-properties'] = apibypassing.encode(data={
                 'location': 'Join Guild',
                 'location_guild_id': self.serverid,
                 'location_channel_id': self.channelid,
