@@ -7,6 +7,10 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
+from src.modules.webhook_menu.infofetcher import infofetcher
+from src.modules.webhook_menu.spammer import spammer
+from src.modules.webhook_menu.deleter import deleter
+
 class webhookmenu:
     def __init__(self):
         self.module = 'Webhook Menu'
@@ -16,15 +20,23 @@ class webhookmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Soon',
+            'Info fetcher',
+            'Spammer',
+            'Deleter',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.menu()
+            infofetcher().menu()
 
         elif chosen == '2':
+            spammer().menu()
+
+        elif chosen == '3':
+            deleter().menu()
+
+        elif chosen == '4':
             return
         
         else:
