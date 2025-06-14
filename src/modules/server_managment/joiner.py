@@ -88,11 +88,11 @@ class joiner:
 
             else:
                 error = self.logger.errordatabase(r.text)
-                self.logger.error(f'{ctoken} Failed to discover invite', error)
+                self.logger.error(f'{ctoken}', error)
                 return False
 
         except Exception as e:
-            self.logger.error(f'{ctoken} Failed to discover invite', e)
+            self.logger.error(f'{ctoken}', e)
             return False
 
     def join(self, token, cl: client=None):
@@ -145,13 +145,13 @@ class joiner:
 
                 else:
                     error = self.logger.errordatabase(r.text)
-                    self.logger.error(f'{ctoken} Failed to join', error)
+                    self.logger.error(f'{ctoken}', error)
 
             else:
                 self.logger.error(f'{ctoken} Skipping join as discovery failed')
 
         except Exception as e:
-            self.logger.error(f'{ctoken} Failed to join', e)
+            self.logger.error(f'{ctoken}', e)
 
     def menu(self):
         self.ui.prep()

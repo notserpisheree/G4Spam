@@ -125,7 +125,7 @@ class checker:
 
                     else:
                         error = self.logger.errordatabase(r.text)
-                        self.logger.error(f'{ctoken} Failed to check', error)
+                        self.logger.error(f'{ctoken}', error)
                     
                     return domain, mfa, ev, email, phone, nitro, age
 
@@ -157,7 +157,7 @@ class checker:
 
             else:
                 error = self.logger.errordatabase(r.text)
-                self.logger.error(f'{ctoken} Failed to check', error)
+                self.logger.error(f'{ctoken}', error)
 
         except Exception as e:
             self.logger.error(f'{ctoken} Failed to check', e)

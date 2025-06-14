@@ -10,7 +10,7 @@ class sources:
     def menu():
         module = 'Sources'
         sui = ui(module)
-        sui.prep(module)
+        sui.prep()
         sui.createmenu([
             'Private raiders',
             'Proxies',
