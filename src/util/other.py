@@ -9,22 +9,29 @@ from src import *
 
 class other:
     def getrepostars():
-        r = requests.get(f'https://api.github.com/repos/R3CI/G4Spam')
-        return r.json().get('stargazers_count', 'Unk')
-    
+        try:
+            r = requests.get('https://api.github.com/repos/R3CI/G4Spam', timeout=5)
+            r.raise_for_status()
+            return r.json().get('stargazers_count', 'Unk')
+        except:
+            return 'Unk'
+   
     def addlaunch():
         try:
-            requests.post('http://r3ci.pythonanywhere.com/launch', timeout=3)
+            requests.post(f'http://prem-eu1.bot-hosting.net:22100/launch', timeout=3)
         except:
             pass
-
+    
     def getlaunches():
         try:
-            return str(requests.get('http://r3ci.pythonanywhere.com/launches', timeout=3).text).strip()
+            r = requests.get(f'http://prem-eu1.bot-hosting.net:22100/launches', timeout=3)
+            r.raise_for_status()
+            data = r.json()
+            return str(data.get('count', 0))
         except:
             return '0'
-
-    def delay(seconds) :
+    
+    def delay(seconds):
         seconds = float(seconds)
-        if seconds != 0:
+        if seconds > 0:
             time.sleep(seconds)
