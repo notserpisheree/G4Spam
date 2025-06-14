@@ -3,7 +3,7 @@
 # Licensed under the GNU General Public License v3.0 (GPL-3.0).
 # For more details, visit https://github.com/R3CI/G4Spam
 
-import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls')
+import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls'); os.system('title G4Spam - launching...')
 from src import *
 
 from src.util.client import *
@@ -14,9 +14,7 @@ from src.util.other import other
 from src.util.files import files; files.runtasks()
 from src.util.config import config; config()
 
-from src.modules.server_managment.server_managment import servermanagment
-from src.modules.token_managment.token_managment import tokenmanagment
-from src.modules.sources import sources
+from src.modules import *
 
 logger = logger('Main')
 sui = ui('Main')
@@ -45,6 +43,15 @@ while True:
     options = {
         '1': servermanagment().menu,
         '2': tokenmanagment().menu,
+        '3': spammingmenu().menu,
+        '4': bypassmenu().menu,
+        '5': vcmenu().menu,
+        '6': webhookmenu().menu,
+        '7': nukingmenu().menu,
+        '8': proxymenu().menu,
+        '9': massdmmenu().menu,
+        '10': massreportmenu().menu,
+        '11': annoyingmenu().menu,
         '19': sources.menu,
         '20': lambda: exit(),
     }

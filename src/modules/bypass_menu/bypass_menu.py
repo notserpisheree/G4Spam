@@ -7,24 +7,22 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-from src.modules.token_managment.checker import checker
-
-class tokenmanagment:
+class bypassmenu:
     def __init__(self):
-        self.module = 'Token Managment'
+        self.module = 'Bypass Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Checker',
+            'Soon',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            checker().menu()
+            self.menu()
 
         elif chosen == '2':
             return

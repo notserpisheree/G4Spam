@@ -5,7 +5,27 @@
 
 from src import *
 from src.util.logger import logger
+from src.util.ui import ui
 
 class annoyingmenu:
     def __init__(self):
-        self.logger = logger(name='Annoying Menu')
+        self.module = 'Annoying Menu'
+        self.logger = logger(self.module)
+        self.ui = ui(self.module)
+
+    def menu(self):
+        self.ui.prep()
+        self.ui.createmenu([
+            'Soon',
+            'Back'
+        ])
+        chosen = self.ui.input('Option')
+
+        if chosen == '1':
+            self.menu()
+
+        elif chosen == '2':
+            return
+        
+        else:
+            self.menu()
