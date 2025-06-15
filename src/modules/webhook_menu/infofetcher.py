@@ -37,7 +37,7 @@ class infofetcher:
                     self.logger.log(f'Server ID » {data["guild_id"]}')
                     
                 if data.get('avatar'):
-                    self.logger.log(f'Avatar URL » {f'https://cdn.discordapp.com/avatars/{data["id"]}/{data["avatar"]}.png'}')
+                    self.logger.log(f'Avatar URL » https://cdn.discordapp.com/avatars/{data["id"]}/{data["avatar"]}.png')
                     
                 if 'user' in data:
                     user = data['user']
