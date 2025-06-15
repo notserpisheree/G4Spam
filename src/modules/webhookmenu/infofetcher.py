@@ -42,8 +42,8 @@ class infofetcher:
                 if 'user' in data:
                     user = data['user']
                     user = dict(user)
-                    self.logger.log(f'Creator » {user.get("username", 'Unk')}')
-                    self.logger.log(f'Creator ID » {user.get("id", 'Unk')}')
+                    self.logger.log(f'Creator » {user.get("username", "Unk")}')
+                    self.logger.log(f'Creator ID » {user.get("id", "Unk")}')
 
                 if 'application_id' in data:
                     self.logger.log(f'Application ID » {data["application_id"]}')

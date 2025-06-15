@@ -13,7 +13,7 @@ apibypassing = apibypassing()
 logger.log(f'Latest info fingerprint={apibypassing.fingerprint} client_build={apibypassing.clientbuild}', True)
 
 tempsess = curlwrapper.Session(impersonate=apibypassing.fingerprint)
-cookie: requests.cookies.RequestsCookieJar = apibypassing.getcookie(apibypassing.headers, tempsess)
+cookie = apibypassing.getcookie(apibypassing.headers, tempsess)
 logger.log(f'Got discord info', True)
 
 class client:

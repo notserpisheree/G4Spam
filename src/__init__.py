@@ -18,14 +18,12 @@ try:
     import traceback
     import threading as threadinglib
     import uuid
-    from urllib.parse import urlparse
     import requests
     import curl_cffi as curlcffi_
     import random
     import pkg_resources
     import subprocess
     import base64
-    import requests.cookies
     from curl_cffi import requests as curlcffi
 
 except ModuleNotFoundError:
