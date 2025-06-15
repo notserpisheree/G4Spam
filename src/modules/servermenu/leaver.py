@@ -38,17 +38,17 @@ class leaver:
                 limit = r.json().get('retry_after', 1.5)
                 self.logger.ratelimited(f'{ctoken} Rate limited', limit)
                 time.sleep(float(limit))
-                self.leave(token, client)
+                self.leave(token, cl)
 
             elif 'Try again later' in r.text:
                 self.logger.ratelimited(f'{ctoken} Rate limited', 5)
                 time.sleep(5)
-                self.leave(token, client)
+                self.leave(token, cl)
 
             elif 'Cloudflare' in r.text:
                 self.logger.cloudflared(f'{ctoken} Cloudflare rate limited', 10)
                 time.sleep(10)
-                self.leave(token, client)
+                self.leave(token, cl)
             
             elif 'captcha_key' in r.text:
                 self.logger.hcaptcha(f'{ctoken} Hcaptcha required')

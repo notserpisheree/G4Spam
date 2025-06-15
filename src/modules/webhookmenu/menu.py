@@ -7,26 +7,36 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-from src.modules.token_managment.checker import checker
+from src.modules.webhookmenu.infofetcher import infofetcher
+from src.modules.webhookmenu.spammer import spammer
+from src.modules.webhookmenu.deleter import deleter
 
-class tokenmanagment:
+class webhookmenu:
     def __init__(self):
-        self.module = 'Token Managment'
+        self.module = 'Webhook Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Checker',
+            'Info fetcher',
+            'Spammer',
+            'Deleter',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            checker().menu()
+            infofetcher().menu()
 
         elif chosen == '2':
+            spammer().menu()
+
+        elif chosen == '3':
+            deleter().menu()
+
+        elif chosen == '4':
             return
         
         else:

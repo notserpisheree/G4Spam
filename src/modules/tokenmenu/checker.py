@@ -43,17 +43,17 @@ class checker:
                 limit = r.json().get('retry_after', 1.5)
                 self.logger.ratelimited(f'{ctoken} Rate limited', limit)
                 time.sleep(float(limit))
-                self.check(token, client)
+                self.check(token, cl)
 
             elif 'Try again later' in r.text:
                 self.logger.ratelimited(f'{ctoken} Rate limited', 5)
                 time.sleep(5)
-                self.check(token, client)
+                self.check(token, cl)
 
             elif 'Cloudflare' in r.text:
                 self.logger.cloudflared(f'{ctoken} Cloudflare rate limited', 10)
                 time.sleep(10)
-                self.check(token, client)
+                self.check(token, cl)
             
             elif 'captcha_key' in r.text:
                 self.logger.hcaptcha(f'{ctoken} Hcaptcha required')

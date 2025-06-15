@@ -7,36 +7,33 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-from src.modules.webhook_menu.infofetcher import infofetcher
-from src.modules.webhook_menu.spammer import spammer
-from src.modules.webhook_menu.deleter import deleter
+from src.modules.servermenu.joiner import joiner
+from src.modules.servermenu.leaver import leaver
 
-class webhookmenu:
+class servermenu:
     def __init__(self):
-        self.module = 'Webhook Menu'
+        self.module = 'Server Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
     def menu(self):
         self.ui.prep()
+
         self.ui.createmenu([
-            'Info fetcher',
-            'Spammer',
-            'Deleter',
+            'Joiner',
+            'Leaver',
             'Back'
         ])
+
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            infofetcher().menu()
+            joiner().menu()
 
         elif chosen == '2':
-            spammer().menu()
+            leaver().menu()
 
         elif chosen == '3':
-            deleter().menu()
-
-        elif chosen == '4':
             return
         
         else:

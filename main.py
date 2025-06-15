@@ -42,8 +42,8 @@ while True:
     chosen = sui.input('Option')
 
     options = {
-        '1': servermanagment().menu,
-        '2': tokenmanagment().menu,
+        '1': servermenu().menu,
+        '2': servermenu().menu,
         '3': spammingmenu().menu,
         '4': bypassmenu().menu,
         '5': vcmenu().menu,

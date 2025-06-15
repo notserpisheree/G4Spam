@@ -7,33 +7,26 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-from src.modules.server_managment.joiner import joiner
-from src.modules.server_managment.leaver import leaver
+from src.modules.tokenmenu.checker import checker
 
-class servermanagment:
+class tokenmenu:
     def __init__(self):
-        self.module = 'Server Managment'
+        self.module = 'Token Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
     def menu(self):
         self.ui.prep()
-
         self.ui.createmenu([
-            'Joiner',
-            'Leaver',
+            'Checker',
             'Back'
         ])
-
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            joiner().menu()
+            checker().menu()
 
         elif chosen == '2':
-            leaver().menu()
-
-        elif chosen == '3':
             return
         
         else:
