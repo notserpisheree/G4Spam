@@ -43,7 +43,7 @@ while True:
 
     options = {
         '1': servermenu().menu,
-        '2': servermenu().menu,
+        '2': tokenmenu().menu,
         '3': spammingmenu().menu,
         '4': bypassmenu().menu,
         '5': vcmenu().menu,
