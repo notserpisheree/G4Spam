@@ -76,7 +76,7 @@ Free limited version - get paid on https://r3ci.sellhub.cx/product/G4Spam/
 
         print(menu)
 
-    def input(self, text, yesno=False):
+    def input(self, text, yesno=False, clean=False):
         if self.module == None:
             module = ''
         else:

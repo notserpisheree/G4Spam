@@ -25,7 +25,7 @@ class joiner:
         ctoken = self.ui.cut(token, 20, '...')
         try:
             if not cl:
-                cl = client(token=token)
+                cl = client(token)
 
             r = cl.sess.post(
                 f'https://discord.com/api/v9/invites/{self.invite}',

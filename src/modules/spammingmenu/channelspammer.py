@@ -30,7 +30,7 @@ class channelspammer:
             try:
                 other.delay(self.delay)
                 if not cl:
-                    cl = client(token=token, reffer=f'https://discord.com/channels/{self.serverid}/{self.channelid}')
+                    cl = client(token)
 
                 message = random.choice(self.messages)
                 if self.dostring:

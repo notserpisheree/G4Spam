@@ -4,6 +4,7 @@
 # For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
+from src.util.client import client
 
 class discordutils:
     def extractinv(invite):
