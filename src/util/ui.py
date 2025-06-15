@@ -58,7 +58,7 @@ class ui:
         
     def menu(self):
         menu = fr'''{co.main}
-THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
+Free limited version - get paid on https://r3ci.sellhub.cx/product/G4Spam/
 ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                │
 │   «01» Server managment   «06» Webhook menu       «11» Annoying menu      «18» Unk             │
@@ -118,7 +118,7 @@ THIS IS WORK IN PROGRESS NOT EVERYTHING IS MADE JOIN DISCORD FOR INFO
         self.cls()
         self.banner()
         if self.module != None:
-            self.title(f'G4Spam - {self.module} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
+            self.title(f'G4Spam FREE - {self.module} - github.com/R3CI/G4Spam - discord.gg/spamming - Made by r3ci')
 
     def cut(self, text, length, end=''):
         try:

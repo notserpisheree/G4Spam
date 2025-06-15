@@ -12,6 +12,8 @@ class sources:
         sui = ui(module)
         sui.prep()
         sui.createmenu([
+            'G4Spam PAID',
+            'Lime SOURCE'
             'Private raiders',
             'Proxies',
             'Tokens',
@@ -24,6 +26,12 @@ class sources:
             webbrowser.open('https://r3ci.sellhub.cx')
 
         elif chosen == '2':
+            webbrowser.open('https://r3ci.sellhub.cx')
+
+        elif chosen == '3':
+            webbrowser.open('https://r3ci.sellhub.cx')
+
+        elif chosen == '4':
             sui.createmenu([
                 'IPRoyal',
                 'Mars proxies',
@@ -37,7 +45,7 @@ class sources:
             elif chosen == '3': webbrowser.open('https://proxy.tokenu.to/pricing?ref=r3ci')
             else:               sources.menu()
 
-        elif chosen == '3':
+        elif chosen == '5':
             sui.createmenu([
                 'My shop (UHQ + AGE GARAUNTEED)',
                 'Tokenu',
@@ -49,12 +57,12 @@ class sources:
             elif chosen == '2': webbrowser.open('https://www.tokenu.net?ref=r3ci')
             else:               sources.menu()
 
-        elif chosen == '4':
+        elif chosen == '6':
             sui.createmenu([
                 'Soon'
             ])
 
-        elif chosen == '5':
+        elif chosen == '7':
             return
 
         else:

@@ -21,134 +21,48 @@ class joiner:
         self.ui = ui(self.module)
         self.invite = None
 
-        self.serverid = None
-        self.servername = None
-        self.channelid = None
-        self.channeltype = None
-        self.verifications = []
-
-
-    def discover(self, token, cl: client=None):
+    def join(self, token, cl: client=None):
         ctoken = self.ui.cut(token, 20, '...')
         try:
             if not cl:
-                cl = client(token=token, reffer='https://discord.com/discovery/servers')
+                cl = client(token=token)
 
-            r = cl.sess.get(
-                f'https://discord.com/api/v9/invites/{self.invite}?inputValue={self.invite}&with_counts=true&with_expiration=true&with_permissions=true',
-                headers=cl.headers
+            r = cl.sess.post(
+                f'https://discord.com/api/v9/invites/{self.invite}',
+                headers=cl.headers,
+                json={
+                    'session_id': cl.wssessid
+                }
             )
 
             if r.status_code == 200:
-                data = r.json()
-                guild = dict(data.get('guild', {}))
-                features = list(guild.get('features', []))
-                channel = dict(data.get('channel', {}))
-
-                self.serverid = guild.get('id')
-                self.servername = guild.get('name')
-                self.channelid = channel.get('id')
-                self.channeltype = channel.get('type')
-                
-                if 'GUILD_ONBOARDING' in features:
-                    self.verifications.append('Onboarding')
-
-                if 'MEMBER_VERIFICATION_GATE_ENABLED' in features:
-                    self.verifications.append('Rules')
-                
-                servername = self.ui.cut(text=self.servername, length=20, end='...')
-
-                if self.verifications:
-                    endstr = f' [{", ".join(self.verifications)}]'
-                else:
-                    endstr = ''
-
-                self.logger.succeded(f'{ctoken} Discovered server {servername}{endstr}')
-                return True
+                self.logger.succeded(f'{ctoken} Joined')
 
             elif 'retry_after' in r.text:
                 limit = r.json().get('retry_after', 1.5)
                 self.logger.ratelimited(f'{ctoken} Rate limited', limit)
                 time.sleep(float(limit))
-                return self.discover(token, client)
+                self.join(token, client)
 
             elif 'Try again later' in r.text:
-                self.logger.ratelimited(f'{ctoken} Rate limited', limit)
+                self.logger.ratelimited(f'{ctoken} Rate limited', 5)
                 time.sleep(5)
-                return self.discover(token, client)
+                self.join(token, client)
 
             elif 'Cloudflare' in r.text:
                 self.logger.cloudflared(f'{ctoken} Cloudflare rate limited', 10)
                 time.sleep(10)
-                return self.discover(token, client)
+                self.join(token, client)
             
+            elif 'captcha_key' in r.text:
+                self.logger.hcaptcha(f'{ctoken} Hcaptcha required')
+
             elif 'You need to verify' in r.text:
                 self.logger.locked(f'{ctoken} Locked/Flagged')
-                return False
 
             else:
                 error = self.logger.errordatabase(r.text)
                 self.logger.error(f'{ctoken}', error)
-                return False
-
-        except Exception as e:
-            self.logger.error(f'{ctoken}', e)
-            return False
-
-    def join(self, token, cl: client=None):
-        ctoken = self.ui.cut(token, 20, '...')
-        try:
-            if not cl:
-                cl = client(token=token, reffer='https://discord.com/discovery/servers')
-            
-            cl.headers['x-context-properties'] = apibypassing.encode(data={
-                'location': 'Join Guild',
-                'location_guild_id': self.serverid,
-                'location_channel_id': self.channelid,
-                'location_channel_type': self.channeltype
-            })
-
-            if self.discover(token, cl):
-                r = cl.sess.post(
-                    f'https://discord.com/api/v9/invites/{self.invite}',
-                    headers=cl.headers,
-                    json={
-                        'session_id': cl.wssessid
-                    }
-                )
-
-                if r.status_code == 200:
-                    servername = self.ui.cut(self.servername, 20, '...')
-                    self.logger.succeded(f'{ctoken} Joined {servername}')
-
-                elif 'retry_after' in r.text:
-                    limit = r.json().get('retry_after', 1.5)
-                    self.logger.ratelimited(f'{ctoken} Rate limited', limit)
-                    time.sleep(float(limit))
-                    self.join(token, client)
-
-                elif 'Try again later' in r.text:
-                    self.logger.ratelimited(f'{ctoken} Rate limited', 5)
-                    time.sleep(5)
-                    self.join(token, client)
-
-                elif 'Cloudflare' in r.text:
-                    self.logger.cloudflared(f'{ctoken} Cloudflare rate limited', 10)
-                    time.sleep(10)
-                    self.join(token, client)
-                
-                elif 'captcha_key' in r.text:
-                    self.logger.hcaptcha(f'{ctoken} Hcaptcha required')
-
-                elif 'You need to verify' in r.text:
-                    self.logger.locked(f'{ctoken} Locked/Flagged')
-
-                else:
-                    error = self.logger.errordatabase(r.text)
-                    self.logger.error(f'{ctoken}', error)
-
-            else:
-                self.logger.error(f'{ctoken} Skipping join as discovery failed')
 
         except Exception as e:
             self.logger.error(f'{ctoken}', e)

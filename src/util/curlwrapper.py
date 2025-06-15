@@ -8,6 +8,7 @@ from src.util.logger import logger
 logger = logger('Curl Wrapper')
 
 class responsewrapper:
+    # Full wrapper in paid only bc of skiddies 👍👍👍👍👍
     def __init__(self, response=None, error=None):
         if response:
             self._response = response
@@ -42,25 +43,6 @@ class sessionwrapper:
         self.proxies = self.session.proxies
         self.cookies = self.session.cookies
         self.headers = dict(self.session.headers) if self.session.headers else {}
-    
-    def addpseudo(self, method, url, headers):
-        parsed_url = urlparse(url)
-        if ':method' not in headers:
-            headers[':method'] = method
-            
-        if ':scheme' not in headers:
-            headers[':scheme'] = parsed_url.scheme or 'https'
-            
-        if ':authority' not in headers:
-            headers[':authority'] = parsed_url.netloc
-            
-        if ':path' not in headers:
-            path = parsed_url.path
-            if parsed_url.query:
-                path += '?' + parsed_url.query
-            headers[':path'] = path or '/'
-                
-        return headers
         
     def adddata(self, kwargs):
         headers = kwargs.get('headers', {})
@@ -70,14 +52,6 @@ class sessionwrapper:
             kwargs['data'] = json.dumps(payload, separators=(',', ':')).encode()
             if 'Content-Type' not in headers:
                 headers['Content-Type'] = 'application/json'
-        
-        elif 'data' in kwargs and kwargs['data'] is not None:
-            data = kwargs['data']
-            if isinstance(data, str):
-                kwargs['data'] = data.encode()
-        
-        if 'data' in kwargs and kwargs['data'] is not None:
-            headers['Content-Length'] = str(len(kwargs['data']))
             
         if headers:
             kwargs['headers'] = headers
@@ -87,7 +61,6 @@ class sessionwrapper:
     def request(self, method, url, **kwargs):
         headers = dict(kwargs.get('headers', {})) if kwargs.get('headers') else {}
 
-        headers = self.addpseudo(method, url, headers)
         kwargs['headers'] = headers
 
         kwargs = self.adddata(kwargs)

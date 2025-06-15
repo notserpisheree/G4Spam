@@ -4,7 +4,7 @@
 # For more details, visit https://github.com/R3CI/G4Spam
 
 version = 1.0
-import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls'); os.system('title G4Spam - launching...')
+import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls'); os.system('title G4Spam FREE - launching...')
 import subprocess
 import time
 try:

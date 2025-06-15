@@ -16,7 +16,7 @@ class proxymenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Soon',
+            'Paid ONLY',
             'Back'
         ])
         chosen = self.ui.input('Option')

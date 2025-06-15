@@ -1,9 +1,7 @@
-'''
-This code is the property of R3CI.
-Unauthorized copying, distribution, or use is prohibited.
-Licensed under the GNU General Public License v3.0 (GPL-3.0).
-For more details, visit https://github.com/R3CI/G4Spam
-'''
+# This code is the property of R3CI.
+# Unauthorized copying, distribution, or use is prohibited.
+# Licensed under the GNU General Public License v3.0 (GPL-3.0).
+# For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
 
@@ -18,13 +16,13 @@ class other:
    
     def addlaunch():
         try:
-            requests.post(f'http://prem-eu1.bot-hosting.net:22100/launch', timeout=3)
+            requests.post(f'http://prem-eu1.bot-hosting.net:22100/launch/free', timeout=3)
         except:
             pass
     
     def getlaunches():
         try:
-            r = requests.get(f'http://prem-eu1.bot-hosting.net:22100/launches', timeout=3)
+            r = requests.get(f'http://prem-eu1.bot-hosting.net:22100/launches/free', timeout=3)
             r.raise_for_status()
             data = r.json()
             return str(data.get('count', 0))

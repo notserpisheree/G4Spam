@@ -17,18 +17,17 @@ cookie: requests.cookies.RequestsCookieJar = apibypassing.getcookie(apibypassing
 logger.log(f'Got discord info', True)
 
 class client:
-    def __init__(self, token=None, reffer='https://discord.com/channels/@me'):
+    # Full client bypassing in paid only bc of skiddies 👍👍👍👍
+    def __init__(self, token=None):
         self.sess = curlwrapper.Session(impersonate=apibypassing.fingerprint)
         self.launchid = str(uuid.uuid4())
         self.wssessid = str(uuid.uuid4())
         self.sess.cookies.update(cookie)
 
         self.headers = apibypassing.headers
-        self.headers['reffer'] = reffer
         self.headers['authorization'] = token
 
         xsuper = apibypassing.xsuper  
-        xsuper['referrer'] = reffer
         xsuper['client_launch_id'] = self.launchid
         xsuper['client_heartbeat_session_id'] = self.wssessid
         xsuper = apibypassing.encode(xsuper)

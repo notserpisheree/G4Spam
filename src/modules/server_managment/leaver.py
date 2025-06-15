@@ -21,7 +21,7 @@ class leaver:
         ctoken = self.ui.cut(text=token, length=20, end='...')
         try:
             if not cl:
-                cl = client(token=token, reffer='https://discord.com/discovery/servers')
+                cl = client(token=token)
 
             r = cl.sess.delete(
                 f'https://discord.com/api/v9/users/@me/guilds/{self.serverid}',

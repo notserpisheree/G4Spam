@@ -83,6 +83,7 @@ class logger:
 
         print(f'{ts}{co.main}[{co.reset}{self.module}{co.main}] {co.main}[{co.red}{text}{co.main}] {endstr}{co.reset}')
 
+    # Full error database in paid only bc os skiddies 👍👍👍👍👍👍👍👍👍👍
     def errordatabase(self, text):
         db = {
             '10014': 'Unknown emoji',

@@ -7,6 +7,7 @@ from src import *
 
 class apibypassing:
     def __init__(self):
+        # Full api bypassing in paid only bc of skiddies 👍👍👍👍
         self.chromeversion = '136'
         self.fingerprint = f'chrome{self.chromeversion}'
         self.useragent = f'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{self.chromeversion}.0.0.0 Safari/537.36'
@@ -28,8 +29,8 @@ class apibypassing:
             'release_channel': 'stable',
             'client_build_number': 407742,
             'client_event_source': None,
-            'client_launch_id': str(uuid.uuid4()), # Might make them legit in the future
-            'client_heartbeat_session_id': str(uuid.uuid4()), # Might make them legit in the future
+            'client_launch_id': str(uuid.uuid4()), 
+            'client_heartbeat_session_id': str(uuid.uuid4()),
             'client_app_state': 'focused'
         }
         self.headers = {

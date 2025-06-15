@@ -4,6 +4,8 @@
 # For more details, visit https://github.com/R3CI/G4Spam
 
 from src import *
+from src.util.logger import logger
+logger = logger('Files')
 
 _files = [
     'data\\tokens.txt',
@@ -25,9 +27,18 @@ class files:
     def runtasks():
         for d in _dirs:
             if not os.path.exists(d):
-                os.mkdir(d)
+                try:
+                    os.mkdir(d)
+                except Exception as e:
+                    logger.error(f'Failed to create directory {d}, try to run as admin and move the file to desktop (REMEMBER TO UNZIP)', e)
+                    input('')
         
         for f in _files:
             if not os.path.exists(f):
-                with open(f, 'w') as f:
-                    f.write('')
+                try:
+                    with open(f, 'w') as f:
+                        f.write('')
+                        
+                except Exception as e:
+                    logger.error(f'Failed to create file {f}, try to run as admin and move the file to desktop (REMEMBER TO UNZIP)', e)
+                    input('')
