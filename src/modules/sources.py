@@ -38,7 +38,7 @@ class sources:
                 'Tokenu proxies',
                 'Back'
             ])
-            chosen = sui.input('Option', module)
+            chosen = sui.input('Option')
 
             if chosen == '1':   webbrowser.open('https://iproyal.com/?r=429481')
             elif chosen == '2': webbrowser.open('https://marsproxies.com/r/97040')
@@ -51,7 +51,7 @@ class sources:
                 'Tokenu',
                 'Back'
             ])
-            chosen = sui.input('Option', module)
+            chosen = sui.input('Option')
 
             if chosen == '1':   webbrowser.open('https://r3ci.sellhub.cx/product/Discord-tokens/')
             elif chosen == '2': webbrowser.open('https://www.tokenu.net?ref=r3ci')
