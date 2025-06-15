@@ -27,7 +27,7 @@ def handle_exception(exc_type, exc_value, exc_traceback):
     except:
         pass
     
-    logger.log(text='Press enter to quit, if this keeps happening join the discord and report the error', ts=True)
+    logger.log(text='Press enter to quit, if this keeps happening join the discord and report the error (REDOWNLOADING MIGHT FIX THIS ISSUE)', ts=True)
     input('')
     sys.exit()
 
