@@ -7,6 +7,8 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
+from src.modules.spammingmenu.channelspammer import channelspammer
+
 class spammingmenu:
     def __init__(self):
         self.module = 'Spamming Menu'
@@ -16,13 +18,13 @@ class spammingmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Soon',
+            'Channel spammer',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.menu()
+            channelspammer().menu()
 
         elif chosen == '2':
             return

@@ -18,3 +18,6 @@ class discordutils:
         if period != -1: 
             cut = token[:period]
         return base64.b64decode(cut + '==').decode()
+    
+    def getsnowflake():
+        return ((int(time.time() * 1000) - 1420070400000) << 22)

@@ -33,3 +33,25 @@ class other:
         seconds = float(seconds)
         if seconds > 0:
             time.sleep(seconds)
+
+    def cleanchoice(choice):
+        choice = re.sub(r'[^a-zA-Z0-9><?&]', '', choice)
+        choice = re.sub(r'0(?=\d)', '', choice)
+        return choice
+    
+    def getstring(length):
+        return ''.join(random.choices(string.digits, k=length))
+    
+    def getemoji(length):
+        emoji_ranges = [
+            (0x1F600, 0x1F64F),
+            (0x1F300, 0x1F5FF),
+            (0x1F680, 0x1F6FF),
+            (0x1F700, 0x1F77F),
+            (0x1F900, 0x1F9FF),
+        ]
+        emojis = [chr(code) for start, end in emoji_ranges for code in range(start, end + 1)]
+        return ''.join(random.choices(emojis, k=length))
+
+    def makepings(ids):
+        return ' '.join(f'<@{i}>' for i in ids)

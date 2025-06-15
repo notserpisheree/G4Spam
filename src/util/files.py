@@ -42,3 +42,13 @@ class files:
                 except Exception as e:
                     logger.error(f'Failed to create file {f}, try to run as admin and move the file to desktop (REMEMBER TO UNZIP)', e)
                     input('')
+
+    def choosefile():
+        root = Tk()
+        root.withdraw()
+        return askopenfilename()
+
+    def choosefolder():
+        root = Tk()
+        root.withdraw()
+        return askdirectory()

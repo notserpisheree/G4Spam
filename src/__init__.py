@@ -19,12 +19,15 @@ try:
     import threading as threadinglib
     import uuid
     import requests
+    import string
     import curl_cffi as curlcffi_
     import random
     import pkg_resources
     import subprocess
     import base64
     from curl_cffi import requests as curlcffi
+    from tkinter import Tk
+    from tkinter.filedialog import askopenfilename, askdirectory
 
 except ModuleNotFoundError:
     print('Installing requirements in 5s')
