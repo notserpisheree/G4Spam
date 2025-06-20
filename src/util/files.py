@@ -6,7 +6,7 @@
 from src import *
 from src.util.logger import logger
 logger = logger('Files')
-
+'THISISATEST'
 _files = [
     'data\\tokens.txt',
     'data\\proxies.txt'
