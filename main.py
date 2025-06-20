@@ -15,7 +15,7 @@ from src.util.files import files; files.runtasks()
 from src.util.config import config; config()
 
 from src.modules import *
-
+'THISISATEST'
 logger = logger('Main')
 sui = ui('Main')
 RPC.update('Launching...')

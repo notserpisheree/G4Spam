@@ -185,3 +185,5 @@ class autoupdate:
         except Exception as e:
             self.logger.error('Failed to update', e)
             return False
+
+'THISISATEST'

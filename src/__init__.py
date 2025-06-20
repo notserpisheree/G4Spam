@@ -87,3 +87,4 @@ class co:
 
 from src.util.errorhandler import handle_exception
 sys.excepthook = handle_exception
+
