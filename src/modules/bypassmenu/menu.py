@@ -7,6 +7,8 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
+from src.modules.bypassmenu.reactionbypass import reactionbypass
+
 class bypassmenu:
     def __init__(self):
         self.module = 'Bypass Menu'
@@ -16,15 +18,27 @@ class bypassmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Soon',
+            'Reaction bypass',
+            'Button bypass',
+            'Onboarding',
+            'Rules',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.menu()
+            reactionbypass().menu()
 
         elif chosen == '2':
+            self.logger.log('This feature is paid only')
+
+        elif chosen == '3':
+            self.logger.log('This feature is paid only')
+        
+        elif chosen == '4':
+            self.logger.log('This feature is paid only')
+
+        elif chosen == '5':
             return
         
         else:

@@ -87,27 +87,34 @@ class channelspammer:
 
     def menu(self):
         self.ui.prep()
-        self.channelid = self.ui.input('Channel ID')
-        self.serverid = self.ui.input('Server ID')
+        self.tosendin = self.ui.input('Channel Link')
+        ids = discordutils.extractids(self.tosendin)
+        self.serverid = ids['server']
+        self.channelid = ids['channel']
 
         if self.ui.input('Use messages from a file', True):
             path = files.choosefile()
-            with open(path, 'r') as f:
-                self.messages = f.read().splitlines()
+            if not os.path.exists(path):
+                self.logger.log('File does not exist')
+                self.messages = [self.ui.input('Message')]
+
+            else:
+                with open(path, 'r') as f:
+                    self.messages = f.read().splitlines()
         else:
             self.messages = [self.ui.input('Message')]
 
         self.dostring = self.ui.input('String', True)
         if self.dostring:
-            self.stringlen = int(self.ui.input('Length of string', False, True))
+            self.stringlen = int(self.ui.input('String length', False, True))
 
         self.doemoji = self.ui.input('Emoji', True)
         if self.doemoji:
-            self.emojilen = int(self.ui.input('Length of emoji', False, True))
+            self.emojilen = int(self.ui.input('Amount of emojis', False, True))
 
         self.doping = self.ui.input('Ping', True)
         if self.doping:
-            self.logger.log('Pings are paid only')
+            self.pinglen = int(self.ui.input('Amount of pings', False, True))
 
         self.tts = self.ui.input('TTS (reads messages with a voice auto, this needs permissions)', True)
         if self.tts:

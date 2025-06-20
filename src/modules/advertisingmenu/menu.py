@@ -7,28 +7,24 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-class massdmmenu:
+class advertisingmenu:
     def __init__(self):
-        self.module = 'Mass DM Menu'
+        self.module = 'Advertising Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'One user mass DM',
-            'Use the advertising menu to mass DM with multiple targets',
+            'Soon',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.logger.log('This feature is paid only')
+            self.menu()
 
-        if chosen == '2':
-            self.logger.log('This feature is paid only')
-
-        elif chosen == '3':
+        elif chosen == '2':
             return
         
         else:

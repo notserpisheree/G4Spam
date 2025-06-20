@@ -16,13 +16,13 @@ class annoyingmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Soon',
+            'Audit log spammer',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.menu()
+            self.logger.log('This feature is paid only')
 
         elif chosen == '2':
             return

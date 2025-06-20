@@ -62,9 +62,9 @@ Free limited version - get paid on https://r3ci.sellhub.cx/product/G4Spam/
 ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                │
 │   «01» Server menu        «06» Webhook menu       «11» Annoying menu      «18» Unk             │
-│   «02» Token menu         «07» Nuking menu        «12» Unk                «17» Unk             │
-│   «03» Spamming menu      «08» Proxy menu         «13» Unk                «18» Unk             │
-│   «04» Bypass menu        «09» Mass DM menu       «14» Unk                «19» Sources         │
+│   «02» Token menu         «07» Nuking menu        «12» Funny menu         «17» Unk             │
+│   «03» Spamming menu      «08» Proxy menu         «13» Advertising menu   «18» Unk             │
+│   «04» Bypass menu        «09» Mass DM menu       «14» Boosting menu      «19» Sources         │
 │   «05» VC menu            «10» Mass report menu   «15» Unk                «20» Exit            │
 │                                                                                                │
 ╰────────────────────────────────────────────────────────────────────────────────────────────────╯

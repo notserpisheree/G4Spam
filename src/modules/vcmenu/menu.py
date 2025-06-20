@@ -16,7 +16,7 @@ class vcmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Soon',
+            'Maby gonna add this sometime later (i dont wana make this in a shitty way)',
             'Back'
         ])
         chosen = self.ui.input('Option')

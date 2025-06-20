@@ -19,6 +19,8 @@ class spammingmenu:
         self.ui.prep()
         self.ui.createmenu([
             'Channel spammer',
+            'Multi-channel spammer',
+            'Reply spammer',
             'Back'
         ])
         chosen = self.ui.input('Option')
@@ -27,6 +29,12 @@ class spammingmenu:
             channelspammer().menu()
 
         elif chosen == '2':
+            self.logger.log('This feature is paid only')
+
+        elif chosen == '3':
+            self.logger.log('This feature is paid only')
+
+        elif chosen == '4':
             return
         
         else:

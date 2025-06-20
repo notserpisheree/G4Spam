@@ -8,6 +8,7 @@ from src.util.logger import logger
 from src.util.ui import ui
 
 from src.modules.tokenmenu.checker import checker
+from src.modules.tokenmenu.formatter import formatter
 
 class tokenmenu:
     def __init__(self):
@@ -19,6 +20,7 @@ class tokenmenu:
         self.ui.prep()
         self.ui.createmenu([
             'Checker',
+            'Formatter',
             'Back'
         ])
         chosen = self.ui.input('Option')
@@ -27,6 +29,9 @@ class tokenmenu:
             checker().menu()
 
         elif chosen == '2':
+            formatter().menu()
+
+        elif chosen == '3':
             return
         
         else:

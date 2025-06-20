@@ -16,7 +16,7 @@ class nukingmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Paid ONLY',
+            'Will be added later as this is the least important menu and the least used',
             'Back'
         ])
         chosen = self.ui.input('Option')

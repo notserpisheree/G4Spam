@@ -7,17 +7,17 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-class massdmmenu:
+class funnymenu:
     def __init__(self):
-        self.module = 'Mass DM Menu'
+        self.module = 'Funny Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'One user mass DM',
-            'Use the advertising menu to mass DM with multiple targets',
+            'Reaction speller',
+            'Chat crasher',
             'Back'
         ])
         chosen = self.ui.input('Option')

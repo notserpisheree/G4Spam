@@ -16,15 +16,19 @@ class massreportmenu:
     def menu(self):
         self.ui.prep()
         self.ui.createmenu([
-            'Paid ONLY',
+            'Profile mass report',
+            'Message report',
             'Back'
         ])
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.menu()
+            self.logger.log('This feature is paid only')
 
         elif chosen == '2':
+            self.logger.log('This feature is paid only')
+
+        elif chosen == '3':
             return
         
         else:
