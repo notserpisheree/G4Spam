@@ -5,7 +5,7 @@
 
 import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls'); os.system('title G4Spam FREE - launching...')
 from src import *
-from src.util.autoupdate import update; update()
+from src.util.autoupdate import autoupdate; autoupdate().update()
 from src.util.client import *
 from src.util.ui import ui
 from src.util.rpc import RPC

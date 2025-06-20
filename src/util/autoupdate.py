@@ -10,6 +10,7 @@ from src.util.ui import ui
 class autoupdate:
     def __init__(self):
         self.logger = logger('Auto Update')
+        self.ui = ui('Auto Update')
         self.downloadurl = None
         self.releasedata = None
 
@@ -20,9 +21,11 @@ class autoupdate:
             if r.status_code == 200:
                 self.releasedata = r.json()
                 return True
+            
             else:
                 self.logger.error('Failed to check for updates', r.text)
                 return False
+            
         except Exception as e:
             self.logger.error('Failed to autoupdate', e)
             return False
@@ -106,20 +109,21 @@ class autoupdate:
             newscript = currentscript.with_suffix('.new')
             
             if newscript.exists():
+                if isinstance(currentscript, str):
+                    currentscript = Path(currentscript)
+
+                if isinstance(newscript, str):
+                    newscript = Path(newscript)
+                    
                 shutil.move(str(newscript), str(currentscript))
                 os.chmod(currentscript, 0o755)
-                self.logger.log('Updated script, restarting...')
-                self.restartscript()
+                self.logger.log('Updated script! close this window and open up G4Spam again from the same location, dont worry tokens/proxies/config is saved')
+                input('')
+                sys.exit()
+
         except Exception as e:
             self.logger.error('Failed to update script', e)
 
-    def restartscript(self):
-        try:
-            python = sys.executable
-            script = Path(__file__).resolve()
-            os.execv(python, [python, str(script)])
-        except Exception as e:
-            self.logger.error('Failed to restart script', e)
 
     def update(self):
         try:
@@ -153,7 +157,7 @@ class autoupdate:
             self.logger.log('Release notes')
             self.logger.log(body)
             
-            choice = ui.input('Update', True)
+            choice = self.ui.input('Update', True)
             if not choice:
                 self.logger.log('Update cancelled by user')
                 return False

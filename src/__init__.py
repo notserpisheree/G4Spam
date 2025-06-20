@@ -28,9 +28,6 @@ try:
     from curl_cffi import requests as curlcffi
     from tkinter import Tk
     from tkinter.filedialog import askopenfilename, askdirectory
-    import os
-    import sys
-    import requests
     import zipfile
     import shutil
     import tempfile
