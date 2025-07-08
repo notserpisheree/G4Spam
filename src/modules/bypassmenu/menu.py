@@ -8,6 +8,9 @@ from src.util.logger import logger
 from src.util.ui import ui
 
 from src.modules.bypassmenu.reactionbypass import reactionbypass
+from src.modules.bypassmenu.buttonbypass import buttonbypass
+from src.modules.bypassmenu.onboarding import onboarding
+from src.modules.bypassmenu.rules import rules
 
 class bypassmenu:
     def __init__(self):
@@ -30,13 +33,13 @@ class bypassmenu:
             reactionbypass().menu()
 
         elif chosen == '2':
-            self.logger.log('This feature is paid only')
+            buttonbypass().menu()
 
         elif chosen == '3':
-            self.logger.log('This feature is paid only')
+            onboarding().menu()
         
         elif chosen == '4':
-            self.logger.log('This feature is paid only')
+            rules().menu()
 
         elif chosen == '5':
             return

@@ -6,6 +6,7 @@
 from src import *
 from src.util.logger import logger
 from src.util.ui import ui
+from src.modules.massdmmenu.singledm import singledm
 
 class massdmmenu:
     def __init__(self):
@@ -23,7 +24,7 @@ class massdmmenu:
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.logger.log('This feature is paid only')
+            singledm().menu()
 
         if chosen == '2':
             self.logger.log('This feature is paid only')

@@ -6,6 +6,7 @@
 from src import *
 from src.util.logger import logger
 from src.util.ui import ui
+from src.modules.annoyingmenu.auditlogspammer import auditlogspammer
 
 class annoyingmenu:
     def __init__(self):
@@ -22,7 +23,7 @@ class annoyingmenu:
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.logger.log('This feature is paid only')
+            auditlogspammer().menu()
 
         elif chosen == '2':
             return

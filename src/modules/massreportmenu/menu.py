@@ -6,6 +6,8 @@
 from src import *
 from src.util.logger import logger
 from src.util.ui import ui
+from src.modules.massreportmenu.profilereport import profilereport
+from src.modules.massreportmenu.messagereport import messagereport
 
 class massreportmenu:
     def __init__(self):
@@ -23,10 +25,10 @@ class massreportmenu:
         chosen = self.ui.input('Option')
 
         if chosen == '1':
-            self.logger.log('This feature is paid only')
+            profilereport().menu()
 
         elif chosen == '2':
-            self.logger.log('This feature is paid only')
+            messagereport().menu()
 
         elif chosen == '3':
             return
